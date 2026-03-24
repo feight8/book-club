@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="home-hero">
+  <h1>Chapter &amp; Chow</h1>
+  <p>Books, bites, and the occasional hot take. A record of everything we've read, cooked, and argued about.</p>
+</div>
+
+<!-- Stats -->
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="num">{{ books | length }}</div>
+    <div class="label">Books Read</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">{{ members | length }}</div>
+    <div class="label">Members</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">{{ total_meals }}</div>
+    <div class="label">Dishes Made</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">{{ "{:,}".format(total_pages) }}</div>
+    <div class="label">Pages Read</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">{{ genre_counts | length }}</div>
+    <div class="label">Genres</div>
+  </div>
+</div>
+
+<div class="detail-grid" style="grid-template-columns: 1fr 360px;">
+
+  <div>
+    <!-- Latest Book -->
+    {% if recent_book %}
+    <div class="sidebar-card mb-3">
+      <div class="section-title">Most Recent Read</div>
+      <div class="recent-card">
+        <div class="recent-cover" style="background: {{ recent_book.cover_color }}20; border: 2px solid {{ recent_book.cover_color }}40;">
+          <span style="font-size:2.5rem;">📖</span>
+        </div>
+        <div>
+          <a href="{{ url_for('book_detail', book_id=recent_book.id) }}" style="font-size:1.2rem; font-weight:800; color:var(--text); display:block; margin-bottom:0.25rem;">
+            {{ recent_book.title }}
+          </a>
+          <div class="text-muted text-sm mb-1">by {{ recent_book.author }}</div>
+          <div class="tags mb-2">
+            <span class="tag tag-teal">{{ recent_book.genre }}</span>
+            <span class="tag">{{ recent_book.pages }} pages</span>
+          </div>
+          <div class="flex flex-center gap-sm">
+            <span class="stars">★★★★☆</span>
+            <span class="text-muted text-sm">{{ recent_book.avg_member_rating }} avg · {{ recent_book.goodreads_rating }} GR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Books grid preview -->
+    <div class="section-title">All Books</div>
+    <div class="grid-3">
+      {% for book in books %}
+      <a href="{{ url_for('book_detail', book_id=book.id) }}" class="card" style="text-decoration:none;">
+        <div class="book-cover" style="background: linear-gradient(135deg, {{ book.cover_color }}, {{ book.cover_accent }}30);">
+          <div>
+            <div class="book-cover-title">{{ book.title }}</div>
+            <div class="book-cover-author">{{ book.author }}</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="flex flex-center gap-sm mb-1">
+            <span class="tag tag-teal text-xs">{{ book.genre }}</span>
+            <span class="tag text-xs">{{ book.pages }}p</span>
+          </div>
+          <div class="flex flex-center gap-sm">
+            <span class="stars" style="font-size:0.8rem;">★</span>
+            <span class="text-sm text-muted">{{ book.avg_member_rating }} / 5.0 · GR {{ book.goodreads_rating }}</span>
+          </div>
+          {% if book.selected_by_member %}
+          <div class="text-xs text-muted mt-1">Picked by {{ book.selected_by_member.name }}</div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div>
+    <!-- Genre chart -->
+    <div class="chart-wrap">
+      <h3>Genre Breakdown</h3>
+      <canvas id="genreChart" height="220"></canvas>
+    </div>
+
+    <!-- Members -->
+    <div class="sidebar-card">
+      <div class="section-title">Club Members</div>
+      {% for member in members %}
+      <a href="{{ url_for('person_detail', member_id=member.id) }}" style="text-decoration:none; color:inherit;">
+        <div class="member-mini">
+          <img
+            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ member.avatar_seed }}&backgroundColor=1a1826"
+            alt="{{ member.name }}"
+            class="avatar avatar-sm"
+          />
+          <div>
+            <div style="font-size:0.9rem; font-weight:600;">{{ member.name }}</div>
+            <div class="text-xs" style="color:var(--gold);">{{ member.nickname }}</div>
+          </div>
+          <div class="text-xs text-muted" style="margin-left:auto;">
+            {{ member.books_selected | length }} pick{{ 's' if member.books_selected | length != 1 }}
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Recent Meals -->
+    <div class="sidebar-card" style="margin-top:1.25rem;">
+      <div class="section-title">Recent Dishes</div>
+      {% for meal in meals_preview %}
+      <div class="member-mini">
+        <span style="font-size:1.2rem;">🍽️</span>
+        <div>
+          <a href="{{ url_for('meal_detail', meal_id=meal.id) }}" style="font-size:0.88rem; font-weight:600; color:var(--text);">{{ meal.dish }}</a>
+          <div class="text-xs text-muted">{{ meal.prepared_by_member.name }}</div>
+        </div>
+      </div>
+      {% endfor %}
+      <a href="{{ url_for('meals') }}" class="text-xs text-gold mt-2 d-block">View all dishes →</a>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const genreData = {{ genre_counts | tojson }};
+const labels = Object.keys(genreData);
+const values = Object.values(genreData);
+const COLORS = ['#e8b86d','#5ecfb0','#9b72cf','#e05c6e','#60a5fa','#f97316'];
+
+const ctx = document.getElementById('genreChart');
+if (ctx) {
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{
+        data: values,
+        backgroundColor: COLORS.slice(0, labels.length),
+        borderColor: '#0e0d13',
+        borderWidth: 3,
+        hoverOffset: 6,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { color: '#9892aa', font: { size: 12 }, padding: 14, boxWidth: 12 }
+        }
+      }
+    }
+  });
+}
+</script>
+{% endblock %}

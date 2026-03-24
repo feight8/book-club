@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}People{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>🧑‍🤝‍🧑 The Club</h1>
+  <p>The five minds behind the picks, the plates, and the passionate disagreements.</p>
+</div>
+
+<div class="grid-3">
+  {% for member in members %}
+  <a href="{{ url_for('person_detail', member_id=member.id) }}" class="card" style="text-decoration:none; color:inherit;">
+    <div class="card-body person-card">
+      <img
+        src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ member.avatar_seed }}&backgroundColor=1a1826"
+        alt="{{ member.name }}"
+        class="avatar avatar-lg"
+      />
+      <h3>{{ member.name }}</h3>
+      <div class="nickname">"{{ member.nickname }}"</div>
+      <div class="tagline mb-2">"{{ member.tagline }}"</div>
+
+      <div class="tags" style="justify-content:center; margin-bottom:1rem;">
+        <span class="tag tag-teal">{{ member.favorite_genre }}</span>
+      </div>
+
+      <div class="stat-row" style="margin-bottom:0; gap:0.5rem;">
+        <div class="stat-box" style="text-align:center; padding:0.75rem;">
+          <div class="num" style="font-size:1.5rem;">{{ member.books_selected | length }}</div>
+          <div class="label" style="font-size:0.7rem;">Picks</div>
+        </div>
+        <div class="stat-box" style="text-align:center; padding:0.75rem;">
+          <div class="num" style="font-size:1.5rem;">{{ member.meals_cooked | length }}</div>
+          <div class="label" style="font-size:0.7rem;">Dishes</div>
+        </div>
+        {% if member.avg_rating_given %}
+        <div class="stat-box" style="text-align:center; padding:0.75rem;">
+          <div class="num" style="font-size:1.5rem;">{{ member.avg_rating_given }}</div>
+          <div class="label" style="font-size:0.7rem;">Avg Rating</div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+
+<!-- Club stats comparison -->
+<div class="chart-wrap mt-3">
+  <h3>Who Rates Books Hardest?</h3>
+  <canvas id="ratingCompare" height="100"></canvas>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const names = {{ members | map(attribute='name') | list | tojson }};
+const avgs  = {{ members | map(attribute='avg_rating_given') | list | tojson }};
+const COLORS = ['#e8b86d','#5ecfb0','#9b72cf','#e05c6e','#60a5fa'];
+
+new Chart(document.getElementById('ratingCompare'), {
+  type: 'bar',
+  data: {
+    labels: names,
+    datasets: [{
+      label: 'Average Rating Given',
+      data: avgs,
+      backgroundColor: names.map((_, i) => COLORS[i % COLORS.length]),
+      borderRadius: 8,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` Avg Rating: ${ctx.raw} / 5.0`
+        }
+      }
+    },
+    scales: {
+      y: {
+        min: 0, max: 5,
+        ticks: { color: '#9892aa', stepSize: 1 },
+        grid: { color: '#2e2a42' }
+      },
+      x: { ticks: { color: '#9892aa' }, grid: { display: false } }
+    }
+  }
+});
+</script>
+{% endblock %}

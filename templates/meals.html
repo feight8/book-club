@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Meals{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>🍽️ The Feast Log</h1>
+  <p>Every dish cooked, plated, and eaten in the name of literature.</p>
+</div>
+
+<!-- Stats -->
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="num">{{ meals | length }}</div>
+    <div class="label">Total Dishes</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">{{ meals | selectattr('recipe') | list | length }}</div>
+    <div class="label">With Recipes</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">{{ meal_types | length }}</div>
+    <div class="label">Meal Types</div>
+  </div>
+</div>
+
+<!-- Filter -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-type="all">All</button>
+  {% for t in meal_types %}
+  <button class="filter-btn" data-type="{{ t }}">{{ t }}</button>
+  {% endfor %}
+</div>
+
+<!-- Group by book -->
+{% set books_with_meals = meals | map(attribute='book') | unique(attribute='id') | list %}
+{% for book in books_with_meals %}
+{% set book_meals = meals | selectattr('book_id', 'equalto', book.id) | list %}
+
+<div class="mb-3 book-meal-group" data-book="{{ book.id }}">
+  <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+    <div style="width:10px; height:40px; border-radius:100px; background:{{ book.cover_color }};"></div>
+    <div>
+      <a href="{{ url_for('book_detail', book_id=book.id) }}"
+         style="font-size:1.15rem; font-weight:800; color:var(--text);">{{ book.title }}</a>
+      <div class="text-sm text-muted">{{ book.author }} · {{ book_meals | length }} dish{{ 'es' if book_meals | length != 1 }}</div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    {% for meal in book_meals %}
+    <a href="{{ url_for('meal_detail', meal_id=meal.id) }}"
+       class="card meal-card"
+       data-type="{{ meal.type }}"
+       style="text-decoration:none; color:inherit;">
+      <div class="card-body">
+        <!-- Type badge -->
+        <div class="meal-type-badge
+          {% if meal.type in ('Main',) %}tag-teal
+          {% elif meal.type in ('Dessert','Bread') %}tag-gold
+          {% elif meal.type == 'Drink' %}tag-purple
+          {% else %}tag-red{% endif %}">
+          {{ meal.type }}
+        </div>
+
+        <h3 style="font-size:1rem; margin-bottom:0.5rem; line-height:1.3;">{{ meal.dish }}</h3>
+
+        <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
+          {{ meal.description[:100] }}{% if meal.description | length > 100 %}…{% endif %}
+        </p>
+
+        <hr />
+
+        <div class="flex flex-center gap-sm">
+          <img
+            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ meal.prepared_by_member.avatar_seed }}&backgroundColor=1a1826"
+            class="avatar avatar-sm"
+            alt="{{ meal.prepared_by_member.name }}"
+          />
+          <div>
+            <div class="text-xs text-muted">Cooked by</div>
+            <div class="text-sm fw-bold">{{ meal.prepared_by_member.name }}</div>
+          </div>
+          {% if meal.recipe %}
+          <div style="margin-left:auto;" class="tag tag-teal text-xs">Recipe ↗</div>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const type = btn.dataset.type;
+    document.querySelectorAll('.meal-card').forEach(card => {
+      const show = type === 'all' || card.dataset.type === type;
+      card.style.display = show ? '' : 'none';
+    });
+    // Hide empty book groups
+    document.querySelectorAll('.book-meal-group').forEach(group => {
+      const visible = [...group.querySelectorAll('.meal-card')].some(c => c.style.display !== 'none');
+      group.style.display = visible ? '' : 'none';
+    });
+  });
+});
+</script>
+{% endblock %}

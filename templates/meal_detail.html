@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}{{ meal.dish }}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('meals') }}" class="back-link">← Back to Meals</a>
+
+<!-- Hero -->
+<div class="detail-hero mb-3"
+     style="background:linear-gradient(135deg, {{ meal.book.cover_color }} 0%, {{ meal.book.cover_color }}55 50%, #0e0d13 100%); min-height:180px;">
+  <div class="tags mb-2">
+    <span class="meal-type-badge
+      {% if meal.type in ('Main',) %}tag-teal
+      {% elif meal.type in ('Dessert','Bread') %}tag-gold
+      {% elif meal.type == 'Drink' %}tag-purple
+      {% else %}tag-red{% endif %}">
+      {{ meal.type }}
+    </span>
+    {% if meal.recipe %}
+    <span class="tag" style="background:rgba(94,207,176,0.15); color:var(--teal); border-color:#3a9a80;">Recipe Included</span>
+    {% endif %}
+  </div>
+  <h1 style="font-size:2.2rem; letter-spacing:-0.03em; margin-bottom:0.5rem;">{{ meal.dish }}</h1>
+  <div style="color:rgba(255,255,255,0.7); font-size:0.95rem;">
+    Cooked for
+    <a href="{{ url_for('book_detail', book_id=meal.book.id) }}" style="color:#fff; font-weight:600;">{{ meal.book.title }}</a>
+    by {{ meal.book.author }}
+  </div>
+</div>
+
+<div class="detail-grid">
+  <div>
+    <!-- Description -->
+    <div class="sidebar-card mb-2">
+      <div class="section-title">About this Dish</div>
+      <p style="color:var(--text-muted); line-height:1.7; font-size:0.98rem;">{{ meal.description }}</p>
+    </div>
+
+    <!-- Recipe -->
+    {% if meal.recipe %}
+    <div class="sidebar-card">
+      <div class="section-title">📋 Recipe</div>
+
+      <div class="recipe-section">
+        <h4>Ingredients</h4>
+        <ul class="ingredient-list">
+          {% for item in meal.recipe.ingredients %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="recipe-section">
+        <h4>Method</h4>
+        <ol class="step-list">
+          {% for step in meal.recipe.steps %}
+          <li>{{ step }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+    {% else %}
+    <div class="sidebar-card" style="text-align:center; padding:2rem;">
+      <div style="font-size:3rem; margin-bottom:1rem;">🤫</div>
+      <div class="fw-bold mb-1">Recipe Not Shared</div>
+      <div class="text-muted text-sm">{{ meal.prepared_by_member.name }} is keeping this one close to the chest.</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Sidebar -->
+  <div>
+    <!-- Chef card -->
+    <div class="sidebar-card mb-2">
+      <div class="section-title">Chef</div>
+      <a href="{{ url_for('person_detail', member_id=meal.prepared_by_member.id) }}" style="text-decoration:none; color:inherit;">
+        <div class="flex flex-center gap-sm">
+          <img
+            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ meal.prepared_by_member.avatar_seed }}&backgroundColor=1a1826"
+            class="avatar avatar-md"
+            alt="{{ meal.prepared_by_member.name }}"
+          />
+          <div>
+            <div class="fw-bold">{{ meal.prepared_by_member.name }}</div>
+            <div class="text-xs" style="color:var(--gold);">{{ meal.prepared_by_member.nickname }}</div>
+            <div class="text-xs text-muted mt-1">{{ meal.prepared_by_member.chef_nickname }}</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Book card -->
+    <div class="sidebar-card mb-2">
+      <div class="section-title">Cooked For</div>
+      <a href="{{ url_for('book_detail', book_id=meal.book.id) }}" style="text-decoration:none; color:inherit;">
+        <div style="display:flex; gap:1rem; align-items:center;">
+          <div style="width:50px; height:70px; border-radius:6px; background:linear-gradient(135deg, {{ meal.book.cover_color }}, {{ meal.book.cover_color }}55); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">📖</div>
+          <div>
+            <div class="fw-bold">{{ meal.book.title }}</div>
+            <div class="text-sm text-muted">{{ meal.book.author }}</div>
+            <div class="tag tag-teal text-xs mt-1" style="display:inline-block;">{{ meal.book.genre }}</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Other dishes from same book -->
+    {% set same_book_meals = [] %}
+    <!-- We'd need to pass this from context; show a note instead -->
+    <div class="sidebar-card">
+      <div class="section-title">Details</div>
+      <div style="display:flex; flex-direction:column; gap:0.6rem;">
+        <div class="flex flex-center" style="justify-content:space-between;">
+          <span class="text-sm text-muted">Type</span>
+          <span class="text-sm fw-bold">{{ meal.type }}</span>
+        </div>
+        <div class="flex flex-center" style="justify-content:space-between;">
+          <span class="text-sm text-muted">Recipe Shared</span>
+          <span class="text-sm fw-bold" style="color:{{ 'var(--teal)' if meal.recipe else 'var(--red)' }}">
+            {{ 'Yes' if meal.recipe else 'No' }}
+          </span>
+        </div>
+        <div class="flex flex-center" style="justify-content:space-between;">
+          <span class="text-sm text-muted">Book</span>
+          <span class="text-sm fw-bold">{{ meal.book.title[:20] }}{% if meal.book.title | length > 20 %}…{% endif %}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

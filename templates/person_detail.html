@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% block title %}{{ member.name }}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('people') }}" class="back-link">← Back to People</a>
+
+<!-- Hero -->
+<div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:2rem; display:flex; align-items:center; gap:2rem; flex-wrap:wrap;">
+  <img
+    src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ member.avatar_seed }}&backgroundColor=241f35"
+    alt="{{ member.name }}"
+    class="avatar"
+    style="width:120px; height:120px; border:4px solid var(--border);"
+  />
+  <div style="flex:1; min-width:200px;">
+    <div class="nickname" style="font-size:0.85rem; margin-bottom:0.3rem;">"{{ member.nickname }}"</div>
+    <h1 style="font-size:2.2rem; letter-spacing:-0.03em; margin-bottom:0.3rem;">{{ member.name }}</h1>
+    <div class="tagline" style="font-size:1rem; margin-bottom:1rem;">"{{ member.tagline }}"</div>
+    <div class="tags">
+      <span class="tag tag-teal">{{ member.favorite_genre }}</span>
+      <span class="tag">{{ member.rating_style }}</span>
+      <span class="tag">Member since {{ member.join_date }}</span>
+    </div>
+  </div>
+  <div class="stat-row" style="margin-bottom:0; flex-direction:column; gap:0.5rem; min-width:160px;">
+    <div class="stat-box" style="text-align:center;">
+      <div class="num">{{ member.books_selected | length }}</div>
+      <div class="label">Books Picked</div>
+    </div>
+    <div class="stat-box" style="text-align:center;">
+      <div class="num">{{ member.meals_cooked | length }}</div>
+      <div class="label">Dishes Cooked</div>
+    </div>
+    {% if member.avg_rating_given %}
+    <div class="stat-box" style="text-align:center;">
+      <div class="num">{{ member.avg_rating_given }}</div>
+      <div class="label">Avg Rating Given</div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="detail-grid">
+  <!-- Main -->
+  <div>
+    <!-- Quotes -->
+    <div class="sidebar-card mb-2">
+      <div class="section-title">💬 Notable Quotes</div>
+      <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem;">
+        {% for q in member.quotes %}
+        <div class="quote-block">"{{ q }}"</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Books picked -->
+    {% if member.books_selected_list %}
+    <div class="sidebar-card mb-2">
+      <div class="section-title">📚 Books They've Picked</div>
+      <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem;">
+        {% for book in member.books_selected_list %}
+        <a href="{{ url_for('book_detail', book_id=book.id) }}"
+           style="text-decoration:none; color:inherit; display:flex; gap:1rem; align-items:center; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; transition:border-color 0.15s;"
+           onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="width:48px; height:64px; border-radius:6px; background:linear-gradient(135deg, {{ book.cover_color }}, {{ book.cover_accent }}44); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">📖</div>
+          <div style="flex:1;">
+            <div style="font-weight:700; margin-bottom:0.2rem;">{{ book.title }}</div>
+            <div class="text-sm text-muted">{{ book.author }} · {{ book.genre }}</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="text-xs text-muted">Their rating</div>
+            {% set my_rating = book.ratings.get(member.id) %}
+            {% if my_rating %}
+            <div class="text-gold fw-bold">{{ my_rating.score }} / 5</div>
+            {% endif %}
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- All ratings -->
+    <div class="sidebar-card mb-2">
+      <div class="section-title">⭐ Their Ratings & Reviews</div>
+      {% for entry in member.ratings_given %}
+      <div style="padding:1rem 0; border-bottom:1px solid var(--border);">
+        <div class="flex flex-center gap-sm mb-1">
+          <div style="width:36px; height:48px; border-radius:4px; background:linear-gradient(135deg, {{ entry.book.cover_color }}, {{ entry.book.cover_accent }}44); flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <a href="{{ url_for('book_detail', book_id=entry.book.id) }}" style="font-weight:700; font-size:0.95rem; color:var(--text);">{{ entry.book.title }}</a>
+            <div class="text-xs text-muted">{{ entry.book.author }}</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="stars" style="font-size:0.8rem;">{% for i in range(entry.score | int) %}★{% endfor %}{% if entry.score % 1 >= 0.5 %}½{% endif %}</div>
+            <div class="text-sm text-gold fw-bold">{{ entry.score }}</div>
+          </div>
+        </div>
+        {% if entry.review %}
+        <div class="quote-block text-sm">"{{ entry.review }}"</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Meals -->
+    {% if member.meals_cooked_list %}
+    <div class="sidebar-card">
+      <div class="section-title">🍳 Dishes Cooked</div>
+      <div class="grid-4" style="margin-top:0.5rem;">
+        {% for meal in member.meals_cooked_list %}
+        <a href="{{ url_for('meal_detail', meal_id=meal.id) }}"
+           style="text-decoration:none; color:inherit; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; display:block; transition:border-color 0.15s;"
+           onmouseover="this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div class="text-xs" style="color:var(--gold); margin-bottom:0.3rem;">{{ meal.type }}</div>
+          <div style="font-size:0.88rem; font-weight:700; margin-bottom:0.3rem;">{{ meal.dish }}</div>
+          <div class="text-xs text-muted">for {{ meal.book.title }}</div>
+          {% if meal.recipe %}
+          <div class="text-xs mt-1" style="color:var(--teal);">Has recipe ↗</div>
+          {% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Sidebar -->
+  <div>
+    <!-- Fun facts -->
+    <div class="sidebar-card mb-2">
+      <div class="section-title">Fun Facts</div>
+      <ul class="fun-facts">
+        {% for fact in member.fun_facts %}
+        <li>{{ fact }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Chef card -->
+    <div class="sidebar-card mb-2">
+      <div class="section-title">🔪 In the Kitchen</div>
+      <div class="text-sm text-muted mb-1">Signature Dish</div>
+      <div class="fw-bold mb-2">{{ member.signature_dish }}</div>
+      <div class="text-sm text-muted mb-1">Chef Nickname</div>
+      <div class="fw-bold text-gold">{{ member.chef_nickname }}</div>
+    </div>
+
+    <!-- Ratings radar -->
+    <div class="chart-wrap">
+      <h3>Their Ratings</h3>
+      <canvas id="memberRatings" height="200"></canvas>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const bookTitles = {{ member.ratings_given | map(attribute='book') | map(attribute='title') | list | tojson }};
+const scores = {{ member.ratings_given | map(attribute='score') | list | tojson }};
+const grScores = {{ member.ratings_given | map(attribute='book') | map(attribute='goodreads_rating') | list | tojson }};
+
+new Chart(document.getElementById('memberRatings'), {
+  type: 'line',
+  data: {
+    labels: bookTitles.map(t => t.length > 20 ? t.slice(0,18)+'…' : t),
+    datasets: [
+      {
+        label: 'Their Rating',
+        data: scores,
+        borderColor: '#e8b86d',
+        backgroundColor: 'rgba(232,184,109,0.1)',
+        tension: 0.4,
+        fill: true,
+        pointBackgroundColor: '#e8b86d',
+        pointRadius: 5,
+      },
+      {
+        label: 'Goodreads',
+        data: grScores,
+        borderColor: '#5ecfb0',
+        backgroundColor: 'rgba(94,207,176,0.05)',
+        tension: 0.4,
+        fill: false,
+        pointBackgroundColor: '#5ecfb0',
+        pointRadius: 4,
+        borderDash: [4, 4],
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: { color: '#9892aa', font: { size: 11 }, boxWidth: 10 }
+      }
+    },
+    scales: {
+      y: {
+        min: 0, max: 5,
+        ticks: { color: '#9892aa', stepSize: 1 },
+        grid: { color: '#2e2a42' }
+      },
+      x: { ticks: { color: '#9892aa', font: { size: 10 } }, grid: { display: false } }
+    }
+  }
+});
+</script>
+{% endblock %}
