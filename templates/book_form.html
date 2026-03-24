@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit Book' if book else 'Add Book' }}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('books') }}" class="back-link">← Back to Books</a>
+
+<div class="page-header">
+  <h1>{{ '✏️ Edit Book' if book else '📚 Add a Book' }}</h1>
+  <p>{{ 'Update the details for this book.' if book else 'Add a new book to the club\'s reading list.' }}</p>
+</div>
+
+<form method="post" action="{{ action }}" class="form-card">
+
+  <div class="form-grid">
+    <!-- Title -->
+    <div class="form-group form-full">
+      <label for="title">Title <span class="required">*</span></label>
+      <input id="title" class="form-control" type="text" name="title" required
+             value="{{ book.title if book else '' }}" placeholder="e.g. The Name of the Wind" />
+    </div>
+
+    <!-- Author -->
+    <div class="form-group">
+      <label for="author">Author <span class="required">*</span></label>
+      <input id="author" class="form-control" type="text" name="author" required
+             value="{{ book.author if book else '' }}" placeholder="e.g. Patrick Rothfuss" />
+    </div>
+
+    <!-- Genre -->
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <input id="genre" class="form-control" type="text" name="genre"
+             value="{{ book.genre if book else '' }}" placeholder="e.g. Fantasy" />
+    </div>
+
+    <!-- Pages -->
+    <div class="form-group">
+      <label for="pages">Pages</label>
+      <input id="pages" class="form-control" type="number" name="pages" min="1"
+             value="{{ book.pages if book else '' }}" placeholder="e.g. 662" />
+    </div>
+
+    <!-- Goodreads Rating -->
+    <div class="form-group">
+      <label for="goodreads_rating">Goodreads Rating</label>
+      <input id="goodreads_rating" class="form-control" type="number" name="goodreads_rating"
+             min="0" max="5" step="0.01"
+             value="{{ book.goodreads_rating if book else '' }}" placeholder="e.g. 4.25" />
+    </div>
+
+    <!-- Year Published -->
+    <div class="form-group">
+      <label for="year_published">Year Published</label>
+      <input id="year_published" class="form-control" type="number" name="year_published"
+             value="{{ book.year_published if book else '' }}" placeholder="e.g. 2021" />
+    </div>
+
+    <!-- Date Read -->
+    <div class="form-group">
+      <label for="date_read">Date Read</label>
+      <input id="date_read" class="form-control" type="date" name="date_read"
+             value="{{ book.date_read if book else '' }}" />
+    </div>
+
+    <!-- Selected By -->
+    <div class="form-group">
+      <label for="selected_by">Picked By</label>
+      <select id="selected_by" class="form-control" name="selected_by">
+        <option value="">— none —</option>
+        {% for m in members %}
+        <option value="{{ m.id }}" {{ 'selected' if book and book.selected_by == m.id else '' }}>
+          {{ m.name }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Description -->
+    <div class="form-group form-full">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" name="description" rows="4"
+                placeholder="A brief description of the book...">{{ book.description if book else '' }}</textarea>
+    </div>
+
+    <!-- Tags -->
+    <div class="form-group form-full">
+      <label for="tags">Tags <span class="form-hint">comma-separated</span></label>
+      <input id="tags" class="form-control" type="text" name="tags"
+             value="{{ book.tags | join(', ') if book else '' }}"
+             placeholder="e.g. classic, sci-fi, epic" />
+    </div>
+
+    <!-- Cover Colors -->
+    <div class="form-group">
+      <label for="cover_color">Cover Color</label>
+      <div class="color-input-wrap">
+        <input id="cover_color" type="color" name="cover_color"
+               value="{{ book.cover_color if book else '#444444' }}" class="color-swatch" />
+        <input type="text" class="form-control color-text" id="cover_color_text"
+               value="{{ book.cover_color if book else '#444444' }}" maxlength="7" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cover_accent">Cover Accent Color</label>
+      <div class="color-input-wrap">
+        <input id="cover_accent" type="color" name="cover_accent"
+               value="{{ book.cover_accent if book else '#888888' }}" class="color-swatch" />
+        <input type="text" class="form-control color-text" id="cover_accent_text"
+               value="{{ book.cover_accent if book else '#888888' }}" maxlength="7" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">{{ '💾 Save Changes' if book else '+ Add Book' }}</button>
+    <a href="{{ url_for('book_detail', book_id=book.id) if book else url_for('books') }}" class="btn btn-secondary">Cancel</a>
+  </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Sync color pickers with text inputs
+function syncColor(pickerId, textId) {
+  const picker = document.getElementById(pickerId);
+  const text   = document.getElementById(textId);
+  picker.addEventListener('input', () => text.value = picker.value);
+  text.addEventListener('input', () => { if (/^#[0-9a-fA-F]{6}$/.test(text.value)) picker.value = text.value; });
+}
+syncColor('cover_color', 'cover_color_text');
+syncColor('cover_accent', 'cover_accent_text');
+</script>
+{% endblock %}

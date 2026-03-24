@@ -5,7 +5,7 @@
 <a href="{{ url_for('books') }}" class="back-link">← Back to Books</a>
 
 <!-- Hero -->
-<div class="detail-hero mb-3"
+<div class="detail-hero mb-2"
      style="background: linear-gradient(135deg, {{ book.cover_color }} 0%, {{ book.cover_color }}66 50%, #0e0d13 100%); min-height:220px;">
   <div class="tags mb-2">
     <span class="tag tag-teal">{{ book.genre }}</span>
@@ -22,6 +22,16 @@
   </div>
 </div>
 
+<!-- Action bar -->
+<div class="action-bar mb-3">
+  <a href="{{ url_for('book_edit', book_id=book.id) }}" class="btn btn-secondary">✏️ Edit Book</a>
+  <a href="{{ url_for('meal_new') }}?book_id={{ book.id }}" class="btn btn-secondary">+ Add Dish</a>
+  <form method="post" action="{{ url_for('book_delete', book_id=book.id) }}" style="display:inline;"
+        onsubmit="return confirm('Delete this book? This will also remove all its meals.')">
+    <button type="submit" class="btn btn-danger">🗑 Delete</button>
+  </form>
+</div>
+
 <div class="detail-grid">
   <!-- Main column -->
   <div>
@@ -32,37 +42,82 @@
     </div>
 
     <!-- Member Ratings -->
-    <div class="sidebar-card mb-2">
-      <div class="section-title">Club Ratings & Reviews</div>
-      {% for r in book.member_ratings_list %}
-      <div style="padding:1rem 0; border-bottom:1px solid var(--border);">
-        <div class="flex flex-center gap-sm mb-1">
-          <img
-            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ r.member.avatar_seed }}&backgroundColor=1a1826"
-            class="avatar avatar-sm"
-            alt="{{ r.member.name }}"
-          />
-          <div>
-            <div class="fw-bold" style="font-size:0.95rem;">{{ r.member.name }}</div>
-            <div class="text-xs" style="color:var(--gold);">{{ r.member.nickname }}</div>
+    <div class="sidebar-card mb-2" id="ratings">
+      <div class="section-title">Club Ratings &amp; Reviews</div>
+      {% if book.member_ratings_list %}
+        {% for r in book.member_ratings_list %}
+        {% if r.member %}
+        <div style="padding:1rem 0; border-bottom:1px solid var(--border);">
+          <div class="flex flex-center gap-sm mb-1">
+            <img
+              src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ r.member.avatar_seed }}&backgroundColor=1a1826"
+              class="avatar avatar-sm"
+              alt="{{ r.member.name }}"
+            />
+            <div>
+              <div class="fw-bold" style="font-size:0.95rem;">{{ r.member.name }}</div>
+              <div class="text-xs" style="color:var(--gold);">{{ r.member.nickname }}</div>
+            </div>
+            <div style="margin-left:auto; text-align:right; display:flex; align-items:center; gap:0.75rem;">
+              <div>
+                <div class="stars">{% for i in range(r.score | int) %}★{% endfor %}{% if r.score % 1 >= 0.5 %}½{% endif %}</div>
+                <div class="text-sm text-gold fw-bold">{{ r.score }} / 5.0</div>
+              </div>
+              <form method="post"
+                    action="{{ url_for('rating_delete', book_id=book.id, member_id=r.member_id) }}"
+                    onsubmit="return confirm('Remove {{ r.member.name }}\'s rating?')">
+                <button type="submit" class="btn-icon" title="Remove rating">✕</button>
+              </form>
+            </div>
           </div>
-          <div style="margin-left:auto; text-align:right;">
-            <div class="stars">{% for i in range(r.score | int) %}★{% endfor %}{% if r.score % 1 >= 0.5 %}½{% endif %}</div>
-            <div class="text-sm text-gold fw-bold">{{ r.score }} / 5.0</div>
-          </div>
+          {% if r.review %}
+          <div class="quote-block mt-1">"{{ r.review }}"</div>
+          {% endif %}
         </div>
-        {% if r.review %}
-        <div class="quote-block mt-1">"{{ r.review }}"</div>
         {% endif %}
+        {% endfor %}
+      {% else %}
+      <p class="text-muted text-sm" style="padding:0.75rem 0;">No ratings yet — be the first!</p>
+      {% endif %}
+
+      <!-- Add / edit rating form -->
+      <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--border);">
+        <div class="text-xs text-muted fw-bold" style="text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Add / Update a Rating</div>
+        <form method="post" action="{{ url_for('rating_save', book_id=book.id) }}">
+          <div class="form-grid" style="grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="text-xs text-muted">Member</label>
+              <select name="member_id" class="form-control" id="ratingMemberSelect">
+                <option value="">— select —</option>
+                {% for m in members %}
+                <option value="{{ m.id }}">{{ m.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="text-xs text-muted">Score (0–5)</label>
+              <input type="number" name="score" class="form-control" id="ratingScore"
+                     min="0" max="5" step="0.5" placeholder="e.g. 4.5" />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:0.75rem;">
+            <label class="text-xs text-muted">Review <span class="form-hint">optional</span></label>
+            <textarea name="review" class="form-control" id="ratingReview" rows="2"
+                      placeholder="One sentence take..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="font-size:0.85rem;">Save Rating</button>
+        </form>
       </div>
-      {% endfor %}
     </div>
 
     <!-- Meals -->
     {% if book.meals %}
     <div class="sidebar-card">
-      <div class="section-title">🍽️ What We Cooked</div>
-      <div class="grid-2" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; margin-top:0.5rem;">
+      <div class="section-title" style="display:flex; align-items:center; justify-content:space-between;">
+        🍽️ What We Cooked
+        <a href="{{ url_for('meal_new') }}?book_id={{ book.id }}" class="btn btn-secondary" style="font-size:0.78rem; padding:0.3rem 0.75rem;">+ Add Dish</a>
+      </div>
+      <div class="grid-2" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; margin-top:0.75rem;">
         {% for meal in book.meals %}
         <a href="{{ url_for('meal_detail', meal_id=meal.id) }}"
            style="text-decoration:none; color:inherit; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; display:block; transition:border-color 0.15s;"
@@ -71,7 +126,7 @@
             {{ meal.type }}
           </div>
           <div style="font-weight:700; margin-bottom:0.3rem;">{{ meal.dish }}</div>
-          <div class="text-xs text-muted">by {{ meal.prepared_by_member.name }}</div>
+          <div class="text-xs text-muted">by {{ meal.prepared_by_member.name if meal.prepared_by_member else '—' }}</div>
           {% if meal.recipe %}
           <div class="text-xs mt-1" style="color:var(--teal);">Recipe included ↗</div>
           {% endif %}
@@ -96,6 +151,7 @@
           <span class="rating-num" style="min-width:3rem;">{{ book.goodreads_rating }}</span>
         </div>
       </div>
+      {% if book.avg_member_rating %}
       <div>
         <div class="text-xs text-muted mb-1">Club Average</div>
         <div class="rating-bar-wrap">
@@ -113,10 +169,9 @@
         </span>
         vs Goodreads
       </div>
-
-      <!-- Per-member mini chart -->
       <hr />
       <canvas id="ratingsChart" height="200" style="margin-top:0.5rem;"></canvas>
+      {% endif %}
     </div>
 
     <!-- Picker -->
@@ -163,34 +218,49 @@
 
 {% block scripts %}
 <script>
-const memberNames = {{ book.member_ratings_list | map(attribute='member') | map(attribute='name') | list | tojson }};
-const memberScores = {{ book.member_ratings_list | map(attribute='score') | list | tojson }};
-const COLORS = ['#e8b86d','#5ecfb0','#9b72cf','#e05c6e','#60a5fa'];
-
-new Chart(document.getElementById('ratingsChart'), {
-  type: 'bar',
-  data: {
-    labels: memberNames,
-    datasets: [{
-      label: 'Rating',
-      data: memberScores,
-      backgroundColor: memberNames.map((_, i) => COLORS[i % COLORS.length]),
-      borderRadius: 6,
-      borderSkipped: false,
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { display: false } },
-    scales: {
-      y: {
-        min: 0, max: 5,
-        ticks: { color: '#9892aa', stepSize: 1 },
-        grid: { color: '#2e2a42' }
-      },
-      x: { ticks: { color: '#9892aa' }, grid: { display: false } }
-    }
+// Pre-fill rating form when a member is selected
+const existingRatings = {{ book.ratings_by_member_id | tojson }};
+document.getElementById('ratingMemberSelect')?.addEventListener('change', function() {
+  const mid = parseInt(this.value);
+  const r = existingRatings[mid];
+  if (r) {
+    document.getElementById('ratingScore').value = r.score;
+    document.getElementById('ratingReview').value = r.review || '';
+  } else {
+    document.getElementById('ratingScore').value = '';
+    document.getElementById('ratingReview').value = '';
   }
 });
+
+{% if book.avg_member_rating %}
+const memberNames  = {{ book.member_ratings_list | map(attribute='member') | selectattr('name') | map(attribute='name') | list | tojson }};
+const memberScores = {{ book.member_ratings_list | map(attribute='score') | list | tojson }};
+const COLORS = ['#e8b86d','#5ecfb0','#9b72cf','#e05c6e','#60a5fa','#f97316','#a3e635','#e879f9','#38bdf8'];
+
+const ratingsEl = document.getElementById('ratingsChart');
+if (ratingsEl && memberNames.length) {
+  new Chart(ratingsEl, {
+    type: 'bar',
+    data: {
+      labels: memberNames,
+      datasets: [{
+        label: 'Rating',
+        data: memberScores,
+        backgroundColor: memberNames.map((_, i) => COLORS[i % COLORS.length]),
+        borderRadius: 6,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { min: 0, max: 5, ticks: { color: '#9892aa', stepSize: 1 }, grid: { color: '#2e2a42' } },
+        x: { ticks: { color: '#9892aa' }, grid: { display: false } }
+      }
+    }
+  });
+}
+{% endif %}
 </script>
 {% endblock %}

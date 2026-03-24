@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Sci-Fi",
+    "pages": 896,
+    "goodreads_rating": 4.25,
+    "year_published": 1965,
+    "date_read": "2023-03-15",
+    "selected_by": 1,
+    "description": "A sweeping tale of desert planets, political intrigue, and ecological mysticism. The book that defined modern science fiction and inspired everything from Star Wars to Avatar.",
+    "cover_color": "#c97b2e",
+    "cover_accent": "#f5deb3",
+    "tags": ["classic", "world-building", "epic", "politics"],
+    "ratings": {
+      "1": {"score": 5.0, "review": "A masterpiece. Every sci-fi trope traces back here. Read it."},
+      "2": {"score": 3.5, "review": "Great world, glacial pace. Worth it for the lore, but I needed coffee."},
+      "3": {"score": 4.5, "review": "The political intrigue alone earns a 4.5. Ecological systems thinking ahead of its time."},
+      "4": {"score": 4.0, "review": "Overrated but in the best possible way. Classic for a reason."},
+      "5": {"score": 3.0, "review": "Started it three times before I finished it. Beautiful once it clicked."}
+    }
+  },
+  {
+    "id": 2,
+    "title": "The Seven Husbands of Evelyn Hugo",
+    "author": "Taylor Jenkins Reid",
+    "genre": "Literary Fiction",
+    "pages": 400,
+    "goodreads_rating": 4.40,
+    "year_published": 2017,
+    "date_read": "2023-05-20",
+    "selected_by": 2,
+    "description": "A reclusive Hollywood icon finally tells her story to an unknown journalist. A dazzling, addictive saga of ambition, identity, and love across a glittering life of secrets.",
+    "cover_color": "#8b0000",
+    "cover_accent": "#ffd700",
+    "tags": ["romance", "Hollywood", "LGBTQ+", "secrets"],
+    "ratings": {
+      "1": {"score": 3.5, "review": "Entertaining but I saw every twist coming. Good beach read though."},
+      "2": {"score": 5.0, "review": "A perfect novel. I sobbed. I gasped. I called my mother."},
+      "3": {"score": 4.0, "review": "Structure was immaculate. Could have used 20% more ambiguity."},
+      "4": {"score": 4.5, "review": "This is what I mean when I say popular can also be good."},
+      "5": {"score": 4.5, "review": "The theatrical quality of her life! Evelyn Hugo is a legend."}
+    }
+  },
+  {
+    "id": 3,
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "genre": "Sci-Fi",
+    "pages": 476,
+    "goodreads_rating": 4.52,
+    "year_published": 2021,
+    "date_read": "2023-07-08",
+    "selected_by": 3,
+    "description": "A lone astronaut wakes up with no memory on a desperate mission to save Earth. Funny, heartfelt, and stuffed with real science. The most joyful book about humanity's extinction you'll ever read.",
+    "cover_color": "#1a237e",
+    "cover_accent": "#80deea",
+    "tags": ["space", "science", "humor", "survival", "friendship"],
+    "ratings": {
+      "1": {"score": 5.0, "review": "Rocky. That's all. Rocky made me feel things I didn't expect from a physics textbook."},
+      "2": {"score": 4.0, "review": "The science stuff went over my head but the heart of it was undeniable."},
+      "3": {"score": 5.0, "review": "Weir made me care about astrophage. ASTROPHAGE. 5 stars."},
+      "4": {"score": 3.5, "review": "Fun, breezy. A little too neat for my taste. The friendship was sweet."},
+      "5": {"score": 4.5, "review": "I laughed out loud. In a book about the apocalypse. Remarkable."}
+    }
+  },
+  {
+    "id": 4,
+    "title": "Piranesi",
+    "author": "Susanna Clarke",
+    "genre": "Fantasy",
+    "pages": 272,
+    "goodreads_rating": 4.22,
+    "year_published": 2020,
+    "date_read": "2023-09-14",
+    "selected_by": 4,
+    "description": "A man lives in a labyrinthine House whose halls contain infinite statues and oceans. He knows almost nothing, including who he really is. A novel of extraordinary strangeness and quiet devastation.",
+    "cover_color": "#3e2723",
+    "cover_accent": "#bcaaa4",
+    "tags": ["mystery", "fantasy", "surreal", "short", "haunting"],
+    "ratings": {
+      "1": {"score": 4.5, "review": "The most unique reading experience in years. Clarke is operating on another level."},
+      "2": {"score": 4.0, "review": "I didn't fully understand it but I felt it in my chest. That counts."},
+      "3": {"score": 3.5, "review": "Beautifully written but I wanted more resolution. Too dreamlike for me."},
+      "4": {"score": 5.0, "review": "My pick. My masterpiece. The House is real and it has tides."},
+      "5": {"score": 4.0, "review": "Short, strange, and unforgettable. I thought about it for a week."}
+    }
+  },
+  {
+    "id": 5,
+    "title": "Tomorrow, and Tomorrow, and Tomorrow",
+    "author": "Gabrielle Zevin",
+    "genre": "Literary Fiction",
+    "pages": 480,
+    "goodreads_rating": 4.22,
+    "year_published": 2022,
+    "date_read": "2023-11-02",
+    "selected_by": 5,
+    "description": "Two friends build video games together across decades. A novel about creativity, love, loss, and what it means to make something that outlasts you. Also the best book about friendship written in years.",
+    "cover_color": "#1b5e20",
+    "cover_accent": "#a5d6a7",
+    "tags": ["gaming", "friendship", "creativity", "decades-spanning"],
+    "ratings": {
+      "1": {"score": 4.0, "review": "The gaming details were perfect. The emotional core even more so."},
+      "2": {"score": 5.0, "review": "I wept at the end. Beautiful meditation on creative partnership."},
+      "3": {"score": 4.5, "review": "The game development accuracy alone earns extra points. Rare authenticity."},
+      "4": {"score": 3.0, "review": "Good but I found Sam frustrating in all the wrong ways."},
+      "5": {"score": 5.0, "review": "My pick. Vindicated. This is the novel of our generation."}
+    }
+  },
+  {
+    "id": 6,
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "genre": "Fiction",
+    "pages": 304,
+    "goodreads_rating": 3.98,
+    "year_published": 2020,
+    "date_read": "2024-01-18",
+    "selected_by": 6,
+    "description": "Between life and death lies a library containing every version of your life you could have lived. Nora Seed has the chance to undo her regrets. But which life is the right one?",
+    "cover_color": "#1a237e",
+    "cover_accent": "#7986cb",
+    "tags": ["mental health", "philosophy", "hope", "parallel lives"],
+    "ratings": {
+      "1": {"score": 4.5, "review": "Cozy philosophy wrapped in a warm blanket. I needed this one."},
+      "2": {"score": 4.5, "review": "The message hit me exactly when I needed it to."},
+      "3": {"score": 3.5, "review": "The concept was stronger than the execution. But I smiled at the end."},
+      "4": {"score": 2.5, "review": "Inspiring premise. Very predictable arc. I've seen this movie."},
+      "5": {"score": 4.0, "review": "Accessible and warm. The Haig earnestness lands more often than not."}
+    }
+  },
+  {
+    "id": 7,
+    "title": "Mexican Gothic",
+    "author": "Silvia Moreno-Garcia",
+    "genre": "Gothic Horror",
+    "pages": 320,
+    "goodreads_rating": 3.85,
+    "year_published": 2020,
+    "date_read": "2024-03-07",
+    "selected_by": 7,
+    "description": "1950s Mexico. A glamorous socialite investigates her cousin's mysterious illness at a remote mansion run by a deeply unsettling English family. Gothic horror with a feminist, colonial critique at its heart.",
+    "cover_color": "#4a148c",
+    "cover_accent": "#ce93d8",
+    "tags": ["horror", "gothic", "Mexico", "feminism", "colonialism"],
+    "ratings": {
+      "1": {"score": 4.5, "review": "The atmosphere alone is worth five stars. Deeply unsettling in the best way."},
+      "2": {"score": 4.0, "review": "Noemi is a fantastic protagonist. The ending got weird but I was along for the ride."},
+      "3": {"score": 3.5, "review": "Elegant prose but the horror mechanics felt a bit genre-by-numbers to me."},
+      "4": {"score": 4.5, "review": "The colonial horror is not subtle and shouldn't be."},
+      "5": {"score": 5.0, "review": "The creep factor built perfectly. That house is evil and I loved every page."}
+    }
+  }
+]

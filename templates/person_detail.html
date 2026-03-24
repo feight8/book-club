@@ -24,11 +24,11 @@
   </div>
   <div class="stat-row" style="margin-bottom:0; flex-direction:column; gap:0.5rem; min-width:160px;">
     <div class="stat-box" style="text-align:center;">
-      <div class="num">{{ member.books_selected | length }}</div>
+      <div class="num">{{ member.books_selected_list | length }}</div>
       <div class="label">Books Picked</div>
     </div>
     <div class="stat-box" style="text-align:center;">
-      <div class="num">{{ member.meals_cooked | length }}</div>
+      <div class="num">{{ member.meals_cooked_list | length }}</div>
       <div class="label">Dishes Cooked</div>
     </div>
     {% if member.avg_rating_given %}
@@ -38,6 +38,15 @@
     </div>
     {% endif %}
   </div>
+</div>
+
+<!-- Action bar -->
+<div class="action-bar mb-3">
+  <a href="{{ url_for('person_edit', member_id=member.id) }}" class="btn btn-secondary">✏️ Edit Profile</a>
+  <form method="post" action="{{ url_for('person_delete', member_id=member.id) }}" style="display:inline;"
+        onsubmit="return confirm('Remove {{ member.name }} from the club?')">
+    <button type="submit" class="btn btn-danger">🗑 Remove</button>
+  </form>
 </div>
 
 <div class="detail-grid">
@@ -69,7 +78,7 @@
           </div>
           <div style="text-align:right;">
             <div class="text-xs text-muted">Their rating</div>
-            {% set my_rating = book.ratings.get(member.id) %}
+            {% set my_rating = book.get('ratings', {}).get(member.id | string) %}
             {% if my_rating %}
             <div class="text-gold fw-bold">{{ my_rating.score }} / 5</div>
             {% endif %}

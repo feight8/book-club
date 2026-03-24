@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit Profile' if member else 'Add Member' }}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('people') }}" class="back-link">← Back to People</a>
+
+<div class="page-header">
+  <h1>{{ '✏️ Edit Profile' if member else '🧑 Add Member' }}</h1>
+  <p>{{ 'Update your club profile.' if member else 'Add a new member to the book club.' }}</p>
+</div>
+
+<form method="post" action="{{ action }}" class="form-card">
+  <div class="form-grid">
+
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name">Name <span class="required">*</span></label>
+      <input id="name" class="form-control" type="text" name="name" required
+             value="{{ member.name if member else '' }}" placeholder="e.g. Jordan Smith" />
+    </div>
+
+    <!-- Nickname -->
+    <div class="form-group">
+      <label for="nickname">Nickname</label>
+      <input id="nickname" class="form-control" type="text" name="nickname"
+             value="{{ member.nickname if member else '' }}" placeholder='e.g. "The Contrarian"' />
+    </div>
+
+    <!-- Tagline -->
+    <div class="form-group form-full">
+      <label for="tagline">Tagline</label>
+      <input id="tagline" class="form-control" type="text" name="tagline"
+             value="{{ member.tagline if member else '' }}"
+             placeholder="Your signature one-liner about reading..." />
+    </div>
+
+    <!-- Avatar Seed -->
+    <div class="form-group">
+      <label for="avatar_seed">Avatar Seed <span class="form-hint">changes your avatar image</span></label>
+      <input id="avatar_seed" class="form-control" type="text" name="avatar_seed"
+             value="{{ member.avatar_seed if member else '' }}"
+             placeholder="e.g. JordanSmith" />
+    </div>
+
+    <!-- Join Date -->
+    <div class="form-group">
+      <label for="join_date">Member Since</label>
+      <input id="join_date" class="form-control" type="date" name="join_date"
+             value="{{ member.join_date if member else '' }}" />
+    </div>
+
+    <!-- Favorite Genre -->
+    <div class="form-group">
+      <label for="favorite_genre">Favorite Genre</label>
+      <input id="favorite_genre" class="form-control" type="text" name="favorite_genre"
+             value="{{ member.favorite_genre if member else '' }}" placeholder="e.g. Historical Fiction" />
+    </div>
+
+    <!-- Rating Style -->
+    <div class="form-group">
+      <label for="rating_style">Rating Style</label>
+      <input id="rating_style" class="form-control" type="text" name="rating_style"
+             value="{{ member.rating_style if member else '' }}"
+             placeholder="e.g. Gut-feeling and gut-feeling only" />
+    </div>
+
+    <!-- Signature Dish -->
+    <div class="form-group">
+      <label for="signature_dish">Signature Dish</label>
+      <input id="signature_dish" class="form-control" type="text" name="signature_dish"
+             value="{{ member.signature_dish if member else '' }}"
+             placeholder="Your go-to dish for book club" />
+    </div>
+
+    <!-- Chef Nickname -->
+    <div class="form-group">
+      <label for="chef_nickname">Chef Nickname</label>
+      <input id="chef_nickname" class="form-control" type="text" name="chef_nickname"
+             value="{{ member.chef_nickname if member else '' }}"
+             placeholder='e.g. "The Sauce Architect"' />
+    </div>
+
+    <!-- Fun Facts -->
+    <div class="form-group form-full">
+      <label for="fun_facts">Fun Facts <span class="form-hint">one per line</span></label>
+      <textarea id="fun_facts" class="form-control" name="fun_facts" rows="4"
+                placeholder="Has read every book in the library&#10;Rates with their heart, not their head&#10;...">{{ member.fun_facts | join('\n') if member else '' }}</textarea>
+    </div>
+
+    <!-- Quotes -->
+    <div class="form-group form-full">
+      <label for="quotes">Memorable Quotes <span class="form-hint">one per line</span></label>
+      <textarea id="quotes" class="form-control" name="quotes" rows="4"
+                placeholder="Things you've actually said at book club&#10;The more embarrassing, the better">{{ member.quotes | join('\n') if member else '' }}</textarea>
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">{{ '💾 Save Changes' if member else '+ Add Member' }}</button>
+    <a href="{{ url_for('person_detail', member_id=member.id) if member else url_for('people') }}" class="btn btn-secondary">Cancel</a>
+  </div>
+</form>
+{% endblock %}
