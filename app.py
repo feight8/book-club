@@ -1,8 +1,11 @@
+import atexit
 import json
 import os
 import sqlite3
 from flask import (Flask, render_template, abort, request,
-                   redirect, url_for, flash, g)
+                   redirect, url_for, flash, g, send_file)
+from apscheduler.schedulers.background import BackgroundScheduler
+from export import do_export
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "book-club-dev-secret")
@@ -86,7 +89,7 @@ def get_db():
     return g.db
 
 @app.teardown_appcontext
-def close_db(error):
+def close_db(_):
     db = g.pop("db", None)
     if db is not None:
         db.close()
@@ -579,10 +582,25 @@ def meal_delete(meal_id):
     return redirect(url_for("meals"))
 
 
+# ── Export route ──────────────────────────────────────────────────────────────
+
+@app.route("/export")
+def export():
+    """Download a fresh JSON snapshot of all data."""
+    path = do_export()
+    return send_file(path, as_attachment=True, download_name="bookclub_export.json")
+
+
 # ── Startup ────────────────────────────────────────────────────────────────────
 
 with app.app_context():
     init_db()
+
+# Weekly backup every Monday at 9 AM (runs in background thread)
+_scheduler = BackgroundScheduler()
+_scheduler.add_job(do_export, "cron", day_of_week="mon", hour=9)
+_scheduler.start()
+atexit.register(_scheduler.shutdown)
 
 if __name__ == "__main__":
     app.run(debug=True)
