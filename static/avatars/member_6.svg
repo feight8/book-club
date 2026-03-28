@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="80" cy="80" r="80"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="80" fill="#a8c8e8"/>
+        <!-- tan striped polo/knit vest -->
+        <path d="M24 160 Q24 122 48 116 L80 130 L112 116 Q136 122 136 160Z" fill="#c8b870"/>
+        <!-- vertical stripe pattern on shirt -->
+        <path d="M56 116 L54 160" stroke="#b0a050" stroke-width="3"/>
+        <path d="M68 116 L66 160" stroke="#b0a050" stroke-width="3"/>
+        <path d="M80 118 L80 160" stroke="#b0a050" stroke-width="3"/>
+        <path d="M92 116 L94 160" stroke="#b0a050" stroke-width="3"/>
+        <path d="M104 116 L106 160" stroke="#b0a050" stroke-width="3"/>
+        <!-- collar -->
+        <path d="M66 116 Q80 126 94 116" stroke="#a89040" stroke-width="2" fill="none"/>
+        <!-- neck thick/sturdy -->
+        <rect x="65" y="110" width="30" height="20" rx="5" fill="#e8b878"/>
+        <!-- head wider, sturdy jaw -->
+        <ellipse cx="80" cy="78" rx="44" ry="43" fill="#e8b878"/>
+        <!-- light brown hair short, slicked front -->
+        <path d="M38 66 Q36 42 56 33 Q68 26 80 26 Q92 26 104 33 Q124 42 122 66 Q112 48 97 44 Q88 40 80 40 Q68 40 56 46 Q46 54 38 66Z" fill="#c8a050"/>
+        <!-- hair texture/shine -->
+        <path d="M55 34 Q65 30 75 32 Q68 38 62 44Z" fill="#d8b060" opacity="0.5"/>
+        <!-- fuller face/cheeks -->
+        <ellipse cx="48" cy="90" rx="12" ry="9" fill="#e8b070" opacity="0.3"/>
+        <ellipse cx="112" cy="90" rx="12" ry="9" fill="#e8b070" opacity="0.3"/>
+        <!-- ears -->
+        <ellipse cx="36" cy="82" rx="7" ry="9" fill="#e0a868"/>
+        <ellipse cx="124" cy="82" rx="7" ry="9" fill="#e0a868"/>
+        <!-- eyes friendly/squint slightly -->
+        <ellipse cx="63" cy="79" rx="7.5" ry="7" fill="white"/>
+        <ellipse cx="97" cy="79" rx="7.5" ry="7" fill="white"/>
+        <circle cx="63" cy="80" r="4.5" fill="#6a5830"/>
+        <circle cx="97" cy="80" r="4.5" fill="#6a5830"/>
+        <circle cx="63" cy="79" r="2.2" fill="#1a1a0a"/>
+        <circle cx="97" cy="79" r="2.2" fill="#1a1a0a"/>
+        <circle cx="64.5" cy="78" r="1" fill="white"/>
+        <circle cx="98.5" cy="78" r="1" fill="white"/>
+        <!-- eyebrows fuller -->
+        <path d="M55 71 Q63 68 71 71" stroke="#8a6820" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M89 71 Q97 68 105 71" stroke="#8a6820" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- nose broader -->
+        <path d="M76 89 Q80 94 84 89" stroke="#c08040" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- big confident smile -->
+        <path d="M60 97 Q80 114 100 97" stroke="#b07030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M63 101 Q80 114 97 101" fill="white" opacity="0.6"/>
+      </svg>
+  </g>
+</svg>

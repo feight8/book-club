@@ -9,7 +9,7 @@
   <p>{{ 'Update your club profile.' if member else 'Add a new member to the book club.' }}</p>
 </div>
 
-<form method="post" action="{{ action }}" class="form-card">
+<form method="post" action="{{ action }}" class="form-card" enctype="multipart/form-data">
   <div class="form-grid">
 
     <!-- Name -->
@@ -26,17 +26,21 @@
              value="{{ member.nickname if member else '' }}" placeholder='e.g. "The Contrarian"' />
     </div>
 
-    <!-- Tagline -->
+    <!-- Avatar Upload -->
     <div class="form-group form-full">
-      <label for="tagline">Tagline</label>
-      <input id="tagline" class="form-control" type="text" name="tagline"
-             value="{{ member.tagline if member else '' }}"
-             placeholder="Your signature one-liner about reading..." />
+      <label>Avatar Image <span class="form-hint">upload a cartoon or photo — PNG, JPG, GIF, WebP, SVG</span></label>
+      {% if member and member.get('avatar_img') %}
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
+        <img src="{{ avatar_url(member) }}" class="avatar avatar-md" alt="Current avatar" style="border:2px solid var(--border);" />
+        <span class="text-xs text-muted">Current avatar — upload a new file to replace it</span>
+      </div>
+      {% endif %}
+      <input type="file" name="avatar_file" class="form-control" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" />
     </div>
 
-    <!-- Avatar Seed -->
+    <!-- Avatar Seed (fallback) -->
     <div class="form-group">
-      <label for="avatar_seed">Avatar Seed <span class="form-hint">changes your avatar image</span></label>
+      <label for="avatar_seed">Avatar Seed <span class="form-hint">fallback if no image uploaded</span></label>
       <input id="avatar_seed" class="form-control" type="text" name="avatar_seed"
              value="{{ member.avatar_seed if member else '' }}"
              placeholder="e.g. JordanSmith" />
@@ -56,28 +60,12 @@
              value="{{ member.favorite_genre if member else '' }}" placeholder="e.g. Historical Fiction" />
     </div>
 
-    <!-- Rating Style -->
-    <div class="form-group">
-      <label for="rating_style">Rating Style</label>
-      <input id="rating_style" class="form-control" type="text" name="rating_style"
-             value="{{ member.rating_style if member else '' }}"
-             placeholder="e.g. Gut-feeling and gut-feeling only" />
-    </div>
-
     <!-- Signature Dish -->
     <div class="form-group">
       <label for="signature_dish">Signature Dish</label>
       <input id="signature_dish" class="form-control" type="text" name="signature_dish"
              value="{{ member.signature_dish if member else '' }}"
              placeholder="Your go-to dish for book club" />
-    </div>
-
-    <!-- Chef Nickname -->
-    <div class="form-group">
-      <label for="chef_nickname">Chef Nickname</label>
-      <input id="chef_nickname" class="form-control" type="text" name="chef_nickname"
-             value="{{ member.chef_nickname if member else '' }}"
-             placeholder='e.g. "The Sauce Architect"' />
     </div>
 
     <!-- Fun Facts -->

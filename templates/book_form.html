@@ -82,6 +82,22 @@
                 placeholder="A brief description of the book...">{{ book.description if book else '' }}</textarea>
     </div>
 
+    <!-- Goodreads URL -->
+    <div class="form-group form-full">
+      <label for="goodreads_url">Goodreads URL <span class="form-hint">link to the book's Goodreads page</span></label>
+      <input id="goodreads_url" class="form-control" type="url" name="goodreads_url"
+             value="{{ book.goodreads_url if book else '' }}"
+             placeholder="https://www.goodreads.com/book/show/..." />
+    </div>
+
+    <!-- Event Note -->
+    <div class="form-group form-full">
+      <label for="event_note">Club Moment <span class="form-hint">anything memorable from this meeting</span></label>
+      <input id="event_note" class="form-control" type="text" name="event_note"
+             value="{{ book.event_note if book else '' }}"
+             placeholder="e.g. Steve's wedding, Jim hot sauce punishment..." />
+    </div>
+
     <!-- Tags -->
     <div class="form-group form-full">
       <label for="tags">Tags <span class="form-hint">comma-separated</span></label>

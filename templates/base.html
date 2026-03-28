@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}Book Club{% endblock %} · Chapter &amp; Chow</title>
+  <title>{% block title %}Book Club{% endblock %} · Boys Books and Bites</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-brand" href="{{ url_for('index') }}">📖 Chapter <span>&amp; Chow</span></a>
+    <a class="nav-brand" href="{{ url_for('index') }}">📖 Boys Books <span>&amp; Bites</span></a>
     <ul class="nav-links">
       <li><a href="{{ url_for('index') }}"     class="{{ 'active' if request.endpoint == 'index' }}">Home</a></li>
       <li><a href="{{ url_for('books') }}"     class="{{ 'active' if request.endpoint in ('books','book_detail') }}">Books</a></li>

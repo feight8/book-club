@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="80" cy="80" r="80"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="80" fill="#c8c0b8"/>
+        <!-- Patagonia fleece grey -->
+        <path d="M28 160 Q28 125 50 118 L80 132 L110 118 Q132 125 132 160Z" fill="#9a9890"/>
+        <!-- patagonia logo hint -->
+        <path d="M55 128 Q65 124 75 128" stroke="#7a7870" stroke-width="1.5" fill="none"/>
+        <!-- neck -->
+        <rect x="67" y="112" width="26" height="20" rx="5" fill="#e0a878"/>
+        <!-- head wider/squarer -->
+        <ellipse cx="80" cy="80" rx="42" ry="42" fill="#e0a878"/>
+        <!-- buzz cut - very short dark -->
+        <path d="M40 70 Q40 44 58 36 Q68 30 80 30 Q92 30 102 36 Q120 44 120 70 Q110 50 96 44 Q88 40 80 40 Q66 40 54 46 Q44 54 40 70Z" fill="#3a3028"/>
+        <!-- 5 oclock shadow -->
+        <path d="M48 90 Q46 100 50 110 Q58 122 80 124 Q102 122 110 110 Q114 100 112 90" fill="#3a3028" opacity="0.12"/>
+        <!-- ears bigger -->
+        <ellipse cx="38" cy="83" rx="7" ry="9" fill="#d89a68"/>
+        <ellipse cx="122" cy="83" rx="7" ry="9" fill="#d89a68"/>
+        <!-- eyes narrower, smirk face -->
+        <ellipse cx="63" cy="80" rx="7" ry="6.5" fill="white"/>
+        <ellipse cx="97" cy="80" rx="7" ry="6.5" fill="white"/>
+        <circle cx="63" cy="81" r="4.5" fill="#6a5a40"/>
+        <circle cx="97" cy="81" r="4.5" fill="#6a5a40"/>
+        <circle cx="63" cy="80" r="2.2" fill="#1a1a1a"/>
+        <circle cx="97" cy="80" r="2.2" fill="#1a1a1a"/>
+        <circle cx="64.5" cy="79" r="1" fill="white"/>
+        <circle cx="98.5" cy="79" r="1" fill="white"/>
+        <!-- eyebrows flat/low -->
+        <path d="M56 72 Q63 70 70 72" stroke="#2a2018" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M90 72 Q97 70 104 72" stroke="#2a2018" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- nose broader -->
+        <path d="M76 89 Q80 94 84 89" stroke="#c08040" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- smirky half smile -->
+        <path d="M66 99 Q76 107 92 101" stroke="#b07040" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- holding coffee cup -->
+        <rect x="56" y="138" width="20" height="22" rx="4" fill="#c8a870"/>
+        <path d="M76 146 Q82 146 82 152 Q82 158 76 158" stroke="#a88850" stroke-width="2" fill="none"/>
+        <rect x="56" y="138" width="20" height="5" rx="2" fill="#a88850"/>
+        <!-- 30 balloon small hint above -->
+        <circle cx="104" cy="42" r="12" fill="#f0c840" opacity="0.8"/>
+        <text x="104" y="46" text-anchor="middle" font-family="sans-serif" font-weight="bold" font-size="9" fill="#8a7820">30</text>
+        <line x1="104" y1="54" x2="106" y2="66" stroke="#a89020" stroke-width="1"/>
+      </svg>
+  </g>
+</svg>

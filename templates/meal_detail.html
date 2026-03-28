@@ -84,14 +84,13 @@
       <a href="{{ url_for('person_detail', member_id=meal.prepared_by_member.id) }}" style="text-decoration:none; color:inherit;">
         <div class="flex flex-center gap-sm">
           <img
-            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ meal.prepared_by_member.avatar_seed }}&backgroundColor=1a1826"
+            src="{{ avatar_url(meal.prepared_by_member) }}"
             class="avatar avatar-md"
             alt="{{ meal.prepared_by_member.name }}"
           />
           <div>
             <div class="fw-bold">{{ meal.prepared_by_member.name }}</div>
             <div class="text-xs" style="color:var(--gold);">{{ meal.prepared_by_member.nickname }}</div>
-            <div class="text-xs text-muted mt-1">{{ meal.prepared_by_member.chef_nickname }}</div>
           </div>
         </div>
       </a>

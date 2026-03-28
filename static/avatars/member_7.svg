@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="80" cy="80" r="80"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="80" fill="#d4c9b4"/>
+        <!-- architecture hints in bg -->
+        <path d="M20 80 Q25 60 30 80 Q25 70 20 80Z" fill="#c4b9a0" opacity="0.5"/>
+        <path d="M130 75 Q135 55 140 75 Q135 65 130 75Z" fill="#c4b9a0" opacity="0.5"/>
+        <!-- cream fleece quarter zip -->
+        <path d="M26 160 Q26 124 50 118 L80 130 L110 118 Q134 124 134 160Z" fill="#ddd8c8"/>
+        <!-- zip detail center -->
+        <rect x="77" y="118" width="6" height="20" rx="2" fill="#c8c0b0"/>
+        <!-- neck -->
+        <rect x="67" y="112" width="26" height="18" rx="5" fill="#e8b87a"/>
+        <!-- head -->
+        <ellipse cx="80" cy="78" rx="40" ry="44" fill="#e8b87a"/>
+        <!-- medium brown hair, natural wavy top -->
+        <path d="M42 62 Q40 42 58 33 Q70 26 80 28 Q92 26 102 33 Q120 42 118 62 Q108 46 94 42 Q86 38 80 38 Q68 38 57 44 Q48 52 42 62Z" fill="#7a5535"/>
+        <!-- natural hair flow -->
+        <path d="M42 62 Q44 52 50 46 Q48 56 42 64Z" fill="#6a4525" opacity="0.6"/>
+        <path d="M60 32 Q72 28 80 30" fill="#8a6545" opacity="0.4"/>
+        <!-- side hair -->
+        <path d="M40 62 Q38 72 40 80 Q40 70 44 64Z" fill="#7a5535"/>
+        <path d="M120 62 Q122 72 120 80 Q120 70 116 64Z" fill="#7a5535"/>
+        <!-- ears -->
+        <ellipse cx="40" cy="82" rx="6" ry="8" fill="#e0a868"/>
+        <ellipse cx="120" cy="82" rx="6" ry="8" fill="#e0a868"/>
+        <!-- eyes slight squint/smile -->
+        <ellipse cx="64" cy="79" rx="7" ry="6.5" fill="white"/>
+        <ellipse cx="96" cy="79" rx="7" ry="6.5" fill="white"/>
+        <circle cx="64" cy="80" r="4" fill="#6a5030"/>
+        <circle cx="96" cy="80" r="4" fill="#6a5030"/>
+        <circle cx="64" cy="79" r="2" fill="#1a1010"/>
+        <circle cx="96" cy="79" r="2" fill="#1a1010"/>
+        <circle cx="65" cy="78" r="0.9" fill="white"/>
+        <circle cx="97" cy="78" r="0.9" fill="white"/>
+        <!-- eyebrows -->
+        <path d="M57 71 Q64 68 71 70" stroke="#5a3818" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M89 70 Q96 68 103 71" stroke="#5a3818" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- nose -->
+        <path d="M77 88 Q80 92 83 88" stroke="#c88840" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- calm smile -->
+        <path d="M66 97 Q80 107 94 97" stroke="#b06030" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+  </g>
+</svg>

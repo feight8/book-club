@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="80" cy="80" r="80"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="80" fill="#b8d4e8"/>
+        <!-- jacket collar area -->
+        <path d="M25 160 Q25 120 50 115 L80 128 L110 115 Q135 120 135 160Z" fill="#1e2530"/>
+        <!-- zip detail -->
+        <rect x="77" y="118" width="6" height="20" rx="2" fill="#2a3545"/>
+        <!-- neck -->
+        <rect x="67" y="112" width="26" height="18" rx="5" fill="#f0ceaa"/>
+        <!-- head -->
+        <ellipse cx="80" cy="80" rx="40" ry="43" fill="#f0ceaa"/>
+        <!-- wavy dark blond hair -->
+        <path d="M42 62 Q40 44 56 36 Q70 28 80 30 Q95 28 108 36 Q120 44 118 60 Q110 48 96 44 Q88 42 80 42 Q66 42 54 48 Q46 56 42 62Z" fill="#9a7535"/>
+        <path d="M42 52 Q46 44 54 40 Q48 50 42 62Z" fill="#7a5520" opacity="0.5"/>
+        <!-- wavy hair bottom edge -->
+        <path d="M42 62 Q44 58 48 60 Q52 62 54 58 Q56 54 60 56 Q62 58 60 64" fill="#9a7535"/>
+        <path d="M118 60 Q116 56 112 58 Q108 60 106 56 Q104 52 100 54 Q98 56 100 62" fill="#9a7535"/>
+        <!-- ears -->
+        <ellipse cx="40" cy="83" rx="6" ry="8" fill="#e8be95"/>
+        <ellipse cx="120" cy="83" rx="6" ry="8" fill="#e8be95"/>
+        <!-- blue eyes -->
+        <ellipse cx="65" cy="80" rx="7" ry="7" fill="white"/>
+        <ellipse cx="95" cy="80" rx="7" ry="7" fill="white"/>
+        <circle cx="65" cy="81" r="4.5" fill="#5a9ed4"/>
+        <circle cx="95" cy="81" r="4.5" fill="#5a9ed4"/>
+        <circle cx="65" cy="80" r="2.2" fill="#1a2a3a"/>
+        <circle cx="95" cy="80" r="2.2" fill="#1a2a3a"/>
+        <circle cx="66.5" cy="79" r="1" fill="white"/>
+        <circle cx="96.5" cy="79" r="1" fill="white"/>
+        <!-- eyebrows - medium brown -->
+        <path d="M58 72 Q65 70 72 72" stroke="#6e5020" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M88 72 Q95 70 102 73" stroke="#6e5020" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- nose -->
+        <path d="M78 88 Q80 92 82 88" stroke="#c88840" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- relaxed smile -->
+        <path d="M65 98 Q80 108 95 98" stroke="#b06830" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- cheek rosy from cold -->
+        <ellipse cx="56" cy="90" rx="8" ry="5" fill="#e88070" opacity="0.2"/>
+        <ellipse cx="104" cy="90" rx="8" ry="5" fill="#e88070" opacity="0.2"/>
+      </svg>
+  </g>
+</svg>

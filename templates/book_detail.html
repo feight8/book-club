@@ -6,7 +6,7 @@
 
 <!-- Hero -->
 <div class="detail-hero mb-2"
-     style="background: linear-gradient(135deg, {{ book.cover_color }} 0%, {{ book.cover_color }}66 50%, #0e0d13 100%); min-height:220px;">
+     style="{% if book.cover_img %}background-image: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.85) 100%), url('{{ book.cover_img }}'); background-size: cover; background-position: center;{% else %}background: linear-gradient(135deg, {{ book.cover_color }} 0%, {{ book.cover_color }}66 50%, #0e0d13 100%);{% endif %} min-height:220px;">
   <div class="tags mb-2">
     <span class="tag tag-teal">{{ book.genre }}</span>
     {% for t in book.tags %}
@@ -26,6 +26,9 @@
 <div class="action-bar mb-3">
   <a href="{{ url_for('book_edit', book_id=book.id) }}" class="btn btn-secondary">✏️ Edit Book</a>
   <a href="{{ url_for('meal_new') }}?book_id={{ book.id }}" class="btn btn-secondary">+ Add Dish</a>
+  {% if book.goodreads_url %}
+  <a href="{{ book.goodreads_url }}" target="_blank" rel="noopener" class="btn btn-secondary">★ Goodreads</a>
+  {% endif %}
   <form method="post" action="{{ url_for('book_delete', book_id=book.id) }}" style="display:inline;"
         onsubmit="return confirm('Delete this book? This will also remove all its meals.')">
     <button type="submit" class="btn btn-danger">🗑 Delete</button>
@@ -50,7 +53,7 @@
         <div style="padding:1rem 0; border-bottom:1px solid var(--border);">
           <div class="flex flex-center gap-sm mb-1">
             <img
-              src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ r.member.avatar_seed }}&backgroundColor=1a1826"
+              src="{{ avatar_url(r.member) }}"
               class="avatar avatar-sm"
               alt="{{ r.member.name }}"
             />
@@ -181,7 +184,7 @@
       <a href="{{ url_for('person_detail', member_id=book.selected_by_member.id) }}" style="text-decoration:none; color:inherit;">
         <div class="flex flex-center gap-sm">
           <img
-            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ book.selected_by_member.avatar_seed }}&backgroundColor=1a1826"
+            src="{{ avatar_url(book.selected_by_member) }}"
             class="avatar avatar-md"
             alt="{{ book.selected_by_member.name }}"
           />
@@ -191,6 +194,14 @@
           </div>
         </div>
       </a>
+    </div>
+    {% endif %}
+
+    {% if book.event_note %}
+    <!-- Club Moment -->
+    <div class="sidebar-card mb-2" style="border-color:var(--gold-dim); background:rgba(232,184,109,0.05);">
+      <div class="section-title" style="color:var(--gold);">📌 Club Moment</div>
+      <p style="color:var(--text); font-style:italic; margin:0; line-height:1.6;">{{ book.event_note }}</p>
     </div>
     {% endif %}
 

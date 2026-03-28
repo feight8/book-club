@@ -1,187 +1,46 @@
 [
   {
-    "id": 1, "book_id": 1, "dish": "Spiced Lamb Kebabs with Harissa", "prepared_by": 1, "type": "Main",
-    "description": "Tender chunks of lamb marinated overnight in a blend of cumin, coriander, smoked paprika, and preserved lemon, skewered and charred. Served with house harissa and warm flatbread.",
-    "recipe": {
-      "ingredients": ["2 lbs lamb shoulder, cut into chunks","3 tbsp harissa paste","2 tsp cumin","1 tsp smoked paprika","1 tsp coriander","Juice of 1 preserved lemon","4 garlic cloves, minced","2 tbsp olive oil","Salt and pepper","Fresh mint for serving"],
-      "steps": ["Combine all marinade ingredients in a bowl. Add lamb and coat thoroughly.","Marinate overnight in the fridge (minimum 4 hours).","Thread lamb onto metal skewers.","Grill on high heat 4-5 minutes per side until charred and cooked through.","Rest 5 minutes. Serve with extra harissa and fresh mint on warm flatbread."]
-    }
-  },
-  {
-    "id": 2, "book_id": 1, "dish": "Saffron & Cardamom Basmati", "prepared_by": 2, "type": "Side",
-    "description": "Long-grain basmati rice bloomed with saffron and cardamom, finished with toasted pine nuts and golden raisins.",
-    "recipe": {
-      "ingredients": ["2 cups basmati rice, rinsed","Large pinch of saffron threads","3 cardamom pods, cracked","1/4 cup pine nuts, toasted","1/4 cup golden raisins","2 tbsp butter","4 cups chicken or vegetable stock","Salt"],
-      "steps": ["Bloom saffron in 2 tbsp warm water for 10 minutes.","In a heavy pot, melt butter over medium heat. Toast cardamom pods 1 minute.","Add rice and stir to coat in butter, 2 minutes.","Add stock and saffron water. Bring to boil, then reduce to lowest heat.","Cover and cook 15 minutes. Rest 5 minutes off heat.","Fluff with fork. Fold in pine nuts and raisins."]
-    }
-  },
-  {
-    "id": 3, "book_id": 1, "dish": "Date & Walnut Baklava", "prepared_by": 3, "type": "Dessert",
-    "description": "Crispy phyllo layered with a filling of dates, walnuts, and rose water syrup. Sticky, sweet, and dangerously easy to eat.",
+    "id": 1,
+    "book_id": 2,
+    "dish": "Spaghetti and Meatballs",
+    "prepared_by": 8,
+    "type": "Main",
+    "description": "",
     "recipe": null
   },
   {
-    "id": 4, "book_id": 1, "dish": "Moroccan Mint Tea Service", "prepared_by": 4, "type": "Drink",
-    "description": "Traditional Moroccan mint tea poured from height to create a frothy top. Served with sugar cubes and dried apricots.",
+    "id": 2,
+    "book_id": 3,
+    "dish": "Pizza",
+    "prepared_by": 1,
+    "type": "Main",
+    "description": "",
     "recipe": {
-      "ingredients": ["2 tbsp Chinese gunpowder green tea","Large bunch fresh spearmint","4-6 sugar cubes (or to taste)","4 cups boiling water"],
-      "steps": ["Rinse the teapot with a splash of boiling water, then discard.","Add green tea to pot and pour in 1 cup boiling water. Swirl briefly and pour this water out (this removes bitterness).","Add mint and sugar to pot. Fill with remaining 3 cups boiling water.","Steep 3-4 minutes.","Pour tea into a glass from high up to create froth, then pour back into pot. Repeat twice.","Serve in small glasses, pouring from height."]
+      "ingredients": [],
+      "steps": [
+        "Take phone out of pocket",
+        "Dial restaurant",
+        "Order pizza",
+        "Pick up pizza"
+      ]
     }
   },
   {
-    "id": 5, "book_id": 2, "dish": "Arroz con Frijoles Negros", "prepared_by": 2, "type": "Main",
-    "description": "The real Cuban black beans and rice — slow-cooked sofrito base, black beans with bay leaves and cumin, served alongside fluffy white rice.",
-    "recipe": {
-      "ingredients": ["1 lb dried black beans, soaked overnight","1 large onion, finely diced","1 green bell pepper, finely diced","6 garlic cloves, minced","1 tsp cumin","1 tsp oregano","2 bay leaves","2 tbsp olive oil","Salt, pepper","2 cups white rice, cooked","Fresh cilantro to serve"],
-      "steps": ["Drain soaked beans. Cover with fresh water by 2 inches and bring to boil.","Simmer 1-1.5 hours until beans are tender. Reserve cooking liquid.","In a skillet, make sofrito: cook onion and pepper in olive oil until soft, 10 min.","Add garlic, cumin, oregano. Cook 2 minutes more.","Mash a spoonful of beans into the sofrito to thicken.","Combine sofrito with beans. Add bay leaves and some bean liquid.","Simmer 20 minutes until thick and creamy. Season to taste.","Serve over white rice with fresh cilantro."]
-    }
-  },
-  {
-    "id": 6, "book_id": 2, "dish": "Maduros (Fried Sweet Plantains)", "prepared_by": 5, "type": "Side",
-    "description": "Ripe plantains, caramelized in a hot pan until deeply golden and almost jammy.",
-    "recipe": {
-      "ingredients": ["3 very ripe plantains (black-yellow skin)","Vegetable oil for frying","Pinch of salt"],
-      "steps": ["Peel plantains and slice diagonally into 1/2-inch pieces.","Heat 1/4 inch of oil in a skillet over medium-high heat.","Fry plantain slices 2-3 minutes per side until golden-caramel colored.","Remove to a paper towel-lined plate. Sprinkle with a pinch of salt.","Serve immediately while warm."]
-    }
-  },
-  {
-    "id": 7, "book_id": 2, "dish": "Mojito Cheesecake", "prepared_by": 4, "type": "Dessert",
-    "description": "A no-bake cheesecake with rum, fresh lime, and mint layered into every component — from the Graham cracker base to the mint-lime curd on top.",
+    "id": 3,
+    "book_id": 5,
+    "dish": "Bratwurst",
+    "prepared_by": 5,
+    "type": "Main",
+    "description": "",
     "recipe": null
   },
   {
-    "id": 8, "book_id": 2, "dish": "Old Fashioned Cocktail Bar", "prepared_by": 3, "type": "Drink",
-    "description": "A proper build-your-own Old Fashioned station. Rye whiskey, bourbon, aromatic bitters, Demerara sugar, orange peel.",
-    "recipe": {
-      "ingredients": ["2 oz rye whiskey or bourbon","1 tsp Demerara sugar syrup (or 1 sugar cube)","2-3 dashes Angostura bitters","1 large ice cube","Orange peel for garnish","Luxardo cherry (optional)"],
-      "steps": ["Place sugar and bitters in a rocks glass. Muddle briefly to combine.","Add a large ice cube.","Pour whiskey over ice.","Stir gently for 20-30 seconds to chill and slightly dilute.","Express orange peel over the glass, rub around rim, and drop in.","Add cherry if using. Sip slowly."]
-    }
-  },
-  {
-    "id": 9, "book_id": 3, "dish": "Rocky's World Beet & Goat Cheese Salad", "prepared_by": 1, "type": "Starter",
-    "description": "Roasted golden and red beets arranged to look like Ryland and Rocky's two very different home planets. Goat cheese, candied walnuts, arugula, and a balsamic glaze.",
-    "recipe": {
-      "ingredients": ["3 medium red beets","3 medium golden beets","4 oz goat cheese, crumbled","1/2 cup candied walnuts","4 cups arugula","3 tbsp balsamic glaze","2 tbsp olive oil","Salt and pepper"],
-      "steps": ["Roast beets: wrap individually in foil with a drizzle of olive oil. Roast at 400°F for 45-60 minutes until tender.","Let cool, then peel and slice into rounds.","Arrange arugula on a large platter.","Fan out red and golden beet slices, alternating (the two planets).","Scatter goat cheese and walnuts over top.","Drizzle with olive oil and balsamic glaze.","Season with salt and pepper. Serve immediately."]
-    }
-  },
-  {
-    "id": 10, "book_id": 3, "dish": "Astrophage Spicy Tacos", "prepared_by": 1, "type": "Main",
-    "description": "Named for the solar parasite that started it all. Smoked chipotle chicken with a bright mango habanero salsa that burns just like an astrophage converting mass to energy.",
+    "id": 4,
+    "book_id": 6,
+    "dish": "Beef Bourguignon",
+    "prepared_by": 9,
+    "type": "Main",
+    "description": "",
     "recipe": null
-  },
-  {
-    "id": 11, "book_id": 3, "dish": "Stranded Astronaut Ice Cream Sundaes", "prepared_by": 5, "type": "Dessert",
-    "description": "A build-your-own sundae bar featuring freeze-dried strawberries, actual astronaut ice cream crumbled on top, and a hot fudge 'solar flare' swirl.",
-    "recipe": null
-  },
-  {
-    "id": 12, "book_id": 3, "dish": "Fancy Astronaut Snack Mix", "prepared_by": 2, "type": "Snack",
-    "description": "A gourmet trail mix of freeze-dried fruits, dark chocolate chips, toasted coconut, smoked almonds, and sea salt.",
-    "recipe": {
-      "ingredients": ["1 cup smoked almonds","1/2 cup freeze-dried mango","1/2 cup freeze-dried raspberries","1/2 cup dark chocolate chips (70%)","1/4 cup toasted coconut flakes","1/4 cup pepitas","Flaky sea salt"],
-      "steps": ["Combine all ingredients in a large bowl.","Toss gently to distribute.","Spread on a sheet tray and sprinkle flaky sea salt over the top.","Portion into small cups or bags for serving."]
-    }
-  },
-  {
-    "id": 13, "book_id": 4, "dish": "Marble Cake with Lavender Frosting", "prepared_by": 4, "type": "Dessert",
-    "description": "A swirled vanilla-chocolate marble cake to honor the House's infinite marble halls. Frosted with a pale lavender buttercream.",
-    "recipe": null
-  },
-  {
-    "id": 14, "book_id": 4, "dish": "Ancient Grain Tabbouleh", "prepared_by": 3, "type": "Side",
-    "description": "Farro, freekeh, and bulgur wheat tossed with mountains of fresh parsley, tomato, cucumber, mint, lemon, and olive oil.",
-    "recipe": {
-      "ingredients": ["1/2 cup farro, cooked and cooled","1/2 cup bulgur wheat, cooked and cooled","2 cups flat-leaf parsley, finely chopped","1/2 cup fresh mint, chopped","2 tomatoes, deseeded and diced","1 cucumber, diced","Juice of 2 lemons","3 tbsp olive oil","Salt and pepper"],
-      "steps": ["Combine cooled farro and bulgur in a large bowl.","Add parsley, mint, tomato, and cucumber.","Dress with lemon juice and olive oil.","Season generously with salt and pepper.","Taste and adjust lemon — it should be bright and assertive.","Let sit 15 minutes before serving for flavors to meld."]
-    }
-  },
-  {
-    "id": 15, "book_id": 4, "dish": "Stone Fruit & Almond Tart", "prepared_by": 5, "type": "Dessert",
-    "description": "A buttery tart shell filled with frangipane and topped with sliced plums, cherries, and apricots arranged in concentric rings.",
-    "recipe": null
-  },
-  {
-    "id": 16, "book_id": 4, "dish": "Honey Mead", "prepared_by": 3, "type": "Drink",
-    "description": "A homemade quick mead — honey, water, and a touch of yeast — given a week to ferment gently. Ancient, sweet, faintly effervescent.",
-    "recipe": null
-  },
-  {
-    "id": 17, "book_id": 5, "dish": "Vintage Retro Charcuterie Board", "prepared_by": 5, "type": "Starter",
-    "description": "A sprawling board styled after the 80s and 90s gaming era: Velveeta alongside aged cheddar, Ritz crackers next to artisan sourdough, luncheon meat roses beside proper prosciutto.",
-    "recipe": null
-  },
-  {
-    "id": 18, "book_id": 5, "dish": "Korean-Japanese Fusion Bibimbap", "prepared_by": 3, "type": "Main",
-    "description": "A full bibimbap spread — seasoned spinach, bean sprouts, julienned carrots, shiitake mushrooms, bulgogi beef, and a fried egg over stone-pot rice.",
-    "recipe": {
-      "ingredients": ["4 cups cooked short-grain rice","200g beef sirloin, thinly sliced","2 tbsp soy sauce, 1 tbsp sesame oil, 1 tbsp sugar (for beef marinade)","200g spinach, blanched and squeezed dry","200g bean sprouts, blanched","2 carrots, julienned","200g shiitake mushrooms, sliced","4 eggs","4 tbsp gochujang (Korean chili paste)","2 tbsp sesame seeds","Sesame oil for drizzling"],
-      "steps": ["Marinate beef in soy, sesame oil, sugar for 30 min. Pan-fry until caramelized.","Season spinach with soy sauce and sesame oil.","Sauté carrots and mushrooms separately, each with a little sesame oil and salt.","Season bean sprouts with soy, sesame oil, and a pinch of sugar.","Fry eggs sunny-side up.","Serve rice in individual bowls. Arrange toppings in sections around the bowl.","Top with fried egg. Add gochujang and sesame seeds. Drizzle with sesame oil.","Mix vigorously before eating."]
-    }
-  },
-  {
-    "id": 19, "book_id": 5, "dish": "Pixel Art Rice Crispy Treats", "prepared_by": 2, "type": "Dessert",
-    "description": "Classic rice crispy treats decorated with colored icing to look like 8-bit video game sprites. Took two hours to make and three minutes to eat.",
-    "recipe": null
-  },
-  {
-    "id": 20, "book_id": 5, "dish": "Classic Strawberry Shortcake", "prepared_by": 1, "type": "Dessert",
-    "description": "From-scratch shortcake biscuits, macerated fresh strawberries, and barely-sweetened whipped cream.",
-    "recipe": {
-      "ingredients": ["2 cups flour","2 tbsp sugar","1 tbsp baking powder","1/2 tsp salt","1/2 cup cold butter, cubed","3/4 cup heavy cream, plus more for brushing","1 lb fresh strawberries, hulled and sliced","2 tbsp sugar (for strawberries)","1 cup heavy whipping cream","1 tbsp powdered sugar"],
-      "steps": ["Toss strawberries with 2 tbsp sugar. Let macerate 30 minutes.","For shortcakes: whisk flour, sugar, baking powder, salt.","Cut in cold butter until mixture looks like coarse crumbs.","Add cream and stir just until dough comes together.","Pat out to 3/4-inch thick and cut into rounds.","Brush tops with cream. Bake at 425°F for 12-14 minutes until golden.","Whip cream with powdered sugar to soft peaks.","Split shortcakes, fill with strawberries and whipped cream."]
-    }
-  },
-  {
-    "id": 21, "book_id": 6, "dish": "Mulligatawny Soup", "prepared_by": 4, "type": "Main",
-    "description": "A rich, spiced British-Indian soup with chicken, lentils, apple, and coconut cream. The most comforting thing imaginable.",
-    "recipe": {
-      "ingredients": ["2 chicken breasts, cooked and shredded","1 cup red lentils","1 onion, diced","2 carrots, diced","1 Granny Smith apple, peeled and diced","3 garlic cloves","1 tbsp curry powder","1 tsp cumin","1/2 tsp turmeric","400ml coconut cream","1 liter chicken stock","2 tbsp butter","Juice of 1 lime","Fresh cilantro to serve"],
-      "steps": ["Melt butter in a large pot. Sauté onion and carrot until soft, 8 minutes.","Add garlic, curry powder, cumin, turmeric. Cook 2 minutes until fragrant.","Add apple, lentils, and chicken stock. Bring to boil.","Simmer 20 minutes until lentils are completely soft.","Stir in coconut cream and shredded chicken. Heat through.","Season with lime juice and salt.","Serve with a swirl of coconut cream and fresh cilantro."]
-    }
-  },
-  {
-    "id": 22, "book_id": 6, "dish": "'Every Possibility' Tapas Spread", "prepared_by": 2, "type": "Starter",
-    "description": "Fourteen small dishes representing fourteen possible lives: patatas bravas, gambas al ajillo, Manchego with quince, pan con tomate, and more.",
-    "recipe": null
-  },
-  {
-    "id": 23, "book_id": 6, "dish": "Matcha Everything Platter", "prepared_by": 1, "type": "Dessert",
-    "description": "Matcha mochi, matcha cookies, matcha latte, matcha chocolate bark. A meditation on a single ingredient across infinite forms.",
-    "recipe": null
-  },
-  {
-    "id": 24, "book_id": 6, "dish": "Earl Grey Lavender Shortbread", "prepared_by": 5, "type": "Dessert",
-    "description": "Buttery Scottish shortbread infused with loose-leaf Earl Grey and dried lavender. The kind of biscuit that belongs in a library between lifetimes.",
-    "recipe": {
-      "ingredients": ["225g unsalted butter, softened","100g powdered sugar","2 tbsp loose Earl Grey tea (leaves removed from bags)","1 tsp dried culinary lavender, chopped","280g plain flour","Pinch of salt","Turbinado sugar for rolling"],
-      "steps": ["Beat butter and powdered sugar until pale and fluffy.","Stir in Earl Grey leaves and lavender.","Fold in flour and salt until a soft dough forms.","Shape into a log, roll in turbinado sugar, wrap in cling film.","Chill at least 1 hour (or overnight).","Slice into 1/2-inch rounds. Place on lined baking tray.","Bake at 325°F for 14-16 minutes until pale golden at edges.","Cool completely before eating — they firm up as they cool."]
-    }
-  },
-  {
-    "id": 25, "book_id": 7, "dish": "Mole Negro with Duck Legs", "prepared_by": 4, "type": "Main",
-    "description": "A proper mole negro — 30 ingredients including three types of chili, charred vegetables, dark chocolate, and a secret. Slow-braised duck legs drowning in it.",
-    "recipe": null
-  },
-  {
-    "id": 26, "book_id": 7, "dish": "Chiles en Nogada", "prepared_by": 5, "type": "Main",
-    "description": "Poblano peppers stuffed with a sweet-savory picadillo of pork, raisins, and spices, blanketed in a walnut cream sauce and scattered with pomegranate seeds.",
-    "recipe": null
-  },
-  {
-    "id": 27, "book_id": 7, "dish": "Pan de Muerto", "prepared_by": 1, "type": "Bread",
-    "description": "Traditional Day of the Dead sweet bread, soft and pillowy with orange zest and anise, decorated with bone-shaped dough and a sugar skull on top.",
-    "recipe": {
-      "ingredients": ["4 cups flour","1/2 cup sugar","1 packet active dry yeast","1/2 cup warm milk","1/2 cup butter, melted","4 eggs","Zest of 1 orange","1 tsp anise seeds","1 tsp salt","1/4 cup butter + 1/4 cup sugar for topping"],
-      "steps": ["Dissolve yeast in warm milk with a pinch of sugar. Let sit 10 minutes until foamy.","Mix flour, sugar, salt, anise. Add yeast mixture, eggs, butter, and orange zest.","Knead 10 minutes until smooth and elastic. Dough will be slightly sticky.","Let rise in oiled bowl, covered, 1-2 hours until doubled.","Punch down. Shape into a round loaf. Reserve some dough for decorations.","Roll thin ropes and cross them over the top. Add a small ball at center.","Let rise 45 more minutes. Bake at 350°F for 25-30 minutes until golden.","While warm, brush with melted butter and roll in sugar."]
-    }
-  },
-  {
-    "id": 28, "book_id": 7, "dish": "Mezcal Negroni with Black Salt", "prepared_by": 2, "type": "Drink",
-    "description": "A smoky mezcal negroni served in a coupe rimmed with volcanic black salt. Tastes like something the Doyles would have served at a very bad dinner party.",
-    "recipe": {
-      "ingredients": ["1.5 oz mezcal (joven or reposado)","1 oz Campari","1 oz sweet vermouth","Black lava salt for rim","Orange twist to garnish","Large ice cube"],
-      "steps": ["Rim a coupe or rocks glass with a citrus wedge, then dip in black salt.","Fill a mixing glass with ice. Add mezcal, Campari, and sweet vermouth.","Stir 30 seconds until well-chilled.","Strain into your prepared glass over a large ice cube.","Express orange twist over the glass and use as garnish.","Sip and contemplate the horror."]
-    }
   }
 ]

@@ -1,156 +1,620 @@
 [
   {
     "id": 1,
-    "title": "Dune",
-    "author": "Frank Herbert",
-    "genre": "Sci-Fi",
-    "pages": 896,
-    "goodreads_rating": 4.25,
-    "year_published": 1965,
-    "date_read": "2023-03-15",
-    "selected_by": 1,
-    "description": "A sweeping tale of desert planets, political intrigue, and ecological mysticism. The book that defined modern science fiction and inspired everything from Star Wars to Avatar.",
-    "cover_color": "#c97b2e",
-    "cover_accent": "#f5deb3",
-    "tags": ["classic", "world-building", "epic", "politics"],
+    "title": "Seven Years in Tibet",
+    "author": "Heinrich Harrer",
+    "genre": "Memoir",
+    "pages": 330,
+    "goodreads_rating": 4.1,
+    "year_published": 1953,
+    "date_read": "2024-11-14",
+    "selected_by": 2,
+    "description": "Austrian mountaineer Heinrich Harrer escapes a British internment camp in India and treks across the Himalayas into Tibet, where he spends seven years and becomes a tutor and close friend to the young Dalai Lama.",
+    "cover_color": "#1e3a5f",
+    "cover_accent": "#7bb8d4",
+    "tags": [
+      "memoir",
+      "adventure",
+      "Tibet",
+      "Dalai Lama",
+      "mountaineering"
+    ],
+    "event_note": "",
     "ratings": {
-      "1": {"score": 5.0, "review": "A masterpiece. Every sci-fi trope traces back here. Read it."},
-      "2": {"score": 3.5, "review": "Great world, glacial pace. Worth it for the lore, but I needed coffee."},
-      "3": {"score": 4.5, "review": "The political intrigue alone earns a 4.5. Ecological systems thinking ahead of its time."},
-      "4": {"score": 4.0, "review": "Overrated but in the best possible way. Classic for a reason."},
-      "5": {"score": 3.0, "review": "Started it three times before I finished it. Beautiful once it clicked."}
-    }
+      "1": {
+        "score": 4.0,
+        "review": ""
+      },
+      "2": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/270032.Seven_Years_in_Tibet",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1388251499i/270032.jpg"
   },
   {
     "id": 2,
-    "title": "The Seven Husbands of Evelyn Hugo",
-    "author": "Taylor Jenkins Reid",
-    "genre": "Literary Fiction",
-    "pages": 400,
-    "goodreads_rating": 4.40,
-    "year_published": 2017,
-    "date_read": "2023-05-20",
-    "selected_by": 2,
-    "description": "A reclusive Hollywood icon finally tells her story to an unknown journalist. A dazzling, addictive saga of ambition, identity, and love across a glittering life of secrets.",
-    "cover_color": "#8b0000",
-    "cover_accent": "#ffd700",
-    "tags": ["romance", "Hollywood", "LGBTQ+", "secrets"],
+    "title": "The Will of the Many",
+    "author": "James Islington",
+    "genre": "Fantasy",
+    "pages": 639,
+    "goodreads_rating": 4.58,
+    "year_published": 2023,
+    "date_read": "2024-12-17",
+    "selected_by": 8,
+    "description": "In an empire that rules through the sacrifice of individual will, a young man with a secret past must navigate the most dangerous political school in the world. A masterwork of plotting and misdirection.",
+    "cover_color": "#3d1a6e",
+    "cover_accent": "#b89ae8",
+    "tags": [
+      "fantasy",
+      "political",
+      "Rome-inspired",
+      "magic system",
+      "mystery"
+    ],
+    "event_note": "",
     "ratings": {
-      "1": {"score": 3.5, "review": "Entertaining but I saw every twist coming. Good beach read though."},
-      "2": {"score": 5.0, "review": "A perfect novel. I sobbed. I gasped. I called my mother."},
-      "3": {"score": 4.0, "review": "Structure was immaculate. Could have used 20% more ambiguity."},
-      "4": {"score": 4.5, "review": "This is what I mean when I say popular can also be good."},
-      "5": {"score": 4.5, "review": "The theatrical quality of her life! Evelyn Hugo is a legend."}
-    }
+      "1": {
+        "score": 4.0,
+        "review": ""
+      },
+      "2": {
+        "score": 5.0,
+        "review": ""
+      },
+      "6": {
+        "score": 5.0,
+        "review": ""
+      },
+      "8": {
+        "score": 5.0,
+        "review": ""
+      },
+      "9": {
+        "score": 5.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/58416952-the-will-of-the-many",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1670363463i/58416952.jpg"
   },
   {
     "id": 3,
-    "title": "Project Hail Mary",
-    "author": "Andy Weir",
-    "genre": "Sci-Fi",
-    "pages": 476,
-    "goodreads_rating": 4.52,
-    "year_published": 2021,
-    "date_read": "2023-07-08",
-    "selected_by": 3,
-    "description": "A lone astronaut wakes up with no memory on a desperate mission to save Earth. Funny, heartfelt, and stuffed with real science. The most joyful book about humanity's extinction you'll ever read.",
-    "cover_color": "#1a237e",
-    "cover_accent": "#80deea",
-    "tags": ["space", "science", "humor", "survival", "friendship"],
+    "title": "Barbarians at the Gate",
+    "author": "Bryan Burrough, John Helyar",
+    "genre": "Business / Finance",
+    "pages": 592,
+    "goodreads_rating": 4.29,
+    "year_published": 1989,
+    "date_read": "2025-02-08",
+    "selected_by": 1,
+    "description": "The definitive account of the 1988 leveraged buyout of RJR Nabisco — the largest in Wall Street history. A portrait of 1980s greed, tobacco executives in private jets, and the deal that defined an era.",
+    "cover_color": "#1a3a2a",
+    "cover_accent": "#8ab89a",
+    "tags": [
+      "business",
+      "finance",
+      "LBO",
+      "Wall Street",
+      "1980s",
+      "non-fiction"
+    ],
+    "event_note": "Making of the Atomic Bomb (TMOATB) agreed to as future pick",
     "ratings": {
-      "1": {"score": 5.0, "review": "Rocky. That's all. Rocky made me feel things I didn't expect from a physics textbook."},
-      "2": {"score": 4.0, "review": "The science stuff went over my head but the heart of it was undeniable."},
-      "3": {"score": 5.0, "review": "Weir made me care about astrophage. ASTROPHAGE. 5 stars."},
-      "4": {"score": 3.5, "review": "Fun, breezy. A little too neat for my taste. The friendship was sweet."},
-      "5": {"score": 4.5, "review": "I laughed out loud. In a book about the apocalypse. Remarkable."}
-    }
+      "1": {
+        "score": 5.0,
+        "review": ""
+      },
+      "5": {
+        "score": 4.0,
+        "review": ""
+      },
+      "9": {
+        "score": 3.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/781182.Barbarians_at_the_Gate",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1442897076i/781182.jpg"
   },
   {
     "id": 4,
-    "title": "Piranesi",
-    "author": "Susanna Clarke",
-    "genre": "Fantasy",
-    "pages": 272,
-    "goodreads_rating": 4.22,
-    "year_published": 2020,
-    "date_read": "2023-09-14",
-    "selected_by": 4,
-    "description": "A man lives in a labyrinthine House whose halls contain infinite statues and oceans. He knows almost nothing, including who he really is. A novel of extraordinary strangeness and quiet devastation.",
-    "cover_color": "#3e2723",
-    "cover_accent": "#bcaaa4",
-    "tags": ["mystery", "fantasy", "surreal", "short", "haunting"],
+    "title": "The Three-Body Problem",
+    "author": "Liu Cixin, Ken Liu",
+    "genre": "Sci-Fi",
+    "pages": 472,
+    "goodreads_rating": 4.08,
+    "year_published": 2006,
+    "date_read": "2025-03-07",
+    "selected_by": 3,
+    "description": "During China's Cultural Revolution, a secret military project makes first contact with a dying alien civilization. The first volume of a sweeping sci-fi trilogy that changed what the genre could do.",
+    "cover_color": "#0d1b2a",
+    "cover_accent": "#5e9bbd",
+    "tags": [
+      "sci-fi",
+      "China",
+      "first contact",
+      "physics",
+      "trilogy",
+      "translated"
+    ],
+    "event_note": "",
     "ratings": {
-      "1": {"score": 4.5, "review": "The most unique reading experience in years. Clarke is operating on another level."},
-      "2": {"score": 4.0, "review": "I didn't fully understand it but I felt it in my chest. That counts."},
-      "3": {"score": 3.5, "review": "Beautifully written but I wanted more resolution. Too dreamlike for me."},
-      "4": {"score": 5.0, "review": "My pick. My masterpiece. The House is real and it has tides."},
-      "5": {"score": 4.0, "review": "Short, strange, and unforgettable. I thought about it for a week."}
-    }
+      "2": {
+        "score": 3.0,
+        "review": ""
+      },
+      "8": {
+        "score": 3.0,
+        "review": ""
+      },
+      "9": {
+        "score": 4.0,
+        "review": ""
+      },
+      "1": {
+        "score": 4.0,
+        "review": ""
+      },
+      "6": {
+        "score": 4.0,
+        "review": ""
+      },
+      "5": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/20518872-the-three-body-problem",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1415428227i/20518872.jpg"
   },
   {
     "id": 5,
-    "title": "Tomorrow, and Tomorrow, and Tomorrow",
-    "author": "Gabrielle Zevin",
-    "genre": "Literary Fiction",
-    "pages": 480,
-    "goodreads_rating": 4.22,
-    "year_published": 2022,
-    "date_read": "2023-11-02",
+    "title": "Band of Brothers",
+    "author": "Stephen E. Ambrose",
+    "genre": "History",
+    "pages": 432,
+    "goodreads_rating": 4.44,
+    "year_published": 1992,
+    "date_read": "2025-04-12",
     "selected_by": 5,
-    "description": "Two friends build video games together across decades. A novel about creativity, love, loss, and what it means to make something that outlasts you. Also the best book about friendship written in years.",
-    "cover_color": "#1b5e20",
-    "cover_accent": "#a5d6a7",
-    "tags": ["gaming", "friendship", "creativity", "decades-spanning"],
+    "description": "The extraordinary story of Easy Company, 506th Parachute Infantry Regiment, from jump school in Georgia through D-Day, the liberation of Holland, the Battle of the Bulge, and Hitler's Eagle's Nest.",
+    "cover_color": "#3b3a1e",
+    "cover_accent": "#c5ba8e",
+    "tags": [
+      "WWII",
+      "military",
+      "history",
+      "Easy Company",
+      "D-Day"
+    ],
+    "event_note": "Bathroom floor alignment confirmation",
     "ratings": {
-      "1": {"score": 4.0, "review": "The gaming details were perfect. The emotional core even more so."},
-      "2": {"score": 5.0, "review": "I wept at the end. Beautiful meditation on creative partnership."},
-      "3": {"score": 4.5, "review": "The game development accuracy alone earns extra points. Rare authenticity."},
-      "4": {"score": 3.0, "review": "Good but I found Sam frustrating in all the wrong ways."},
-      "5": {"score": 5.0, "review": "My pick. Vindicated. This is the novel of our generation."}
-    }
+      "1": {
+        "score": 5.0,
+        "review": ""
+      },
+      "5": {
+        "score": 5.0,
+        "review": ""
+      },
+      "6": {
+        "score": 4.0,
+        "review": ""
+      },
+      "9": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/42389.Band_of_Brothers",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1388247701i/42389.jpg"
   },
   {
     "id": 6,
-    "title": "The Midnight Library",
-    "author": "Matt Haig",
-    "genre": "Fiction",
-    "pages": 304,
-    "goodreads_rating": 3.98,
-    "year_published": 2020,
-    "date_read": "2024-01-18",
-    "selected_by": 6,
-    "description": "Between life and death lies a library containing every version of your life you could have lived. Nora Seed has the chance to undo her regrets. But which life is the right one?",
-    "cover_color": "#1a237e",
-    "cover_accent": "#7986cb",
-    "tags": ["mental health", "philosophy", "hope", "parallel lives"],
+    "title": "The Handmaid's Tale",
+    "author": "Margaret Atwood",
+    "genre": "Dystopian Fiction",
+    "pages": 320,
+    "goodreads_rating": 4.15,
+    "year_published": 1985,
+    "date_read": "2025-05-30",
+    "selected_by": 9,
+    "description": "In the totalitarian Republic of Gilead, Offred is a Handmaid — her body the property of the ruling class. A relentless, suffocating vision of what happens when a society decides that women's bodies are a resource.",
+    "cover_color": "#7a0e1e",
+    "cover_accent": "#e05c6e",
+    "tags": [
+      "dystopia",
+      "feminism",
+      "theocracy",
+      "speculative fiction",
+      "classic"
+    ],
+    "event_note": "TikTok famous",
     "ratings": {
-      "1": {"score": 4.5, "review": "Cozy philosophy wrapped in a warm blanket. I needed this one."},
-      "2": {"score": 4.5, "review": "The message hit me exactly when I needed it to."},
-      "3": {"score": 3.5, "review": "The concept was stronger than the execution. But I smiled at the end."},
-      "4": {"score": 2.5, "review": "Inspiring premise. Very predictable arc. I've seen this movie."},
-      "5": {"score": 4.0, "review": "Accessible and warm. The Haig earnestness lands more often than not."}
-    }
+      "9": {
+        "score": 5.0,
+        "review": ""
+      },
+      "6": {
+        "score": 4.0,
+        "review": ""
+      },
+      "1": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/34454589-the-handmaid-s-tale",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1488552336i/34454589.jpg"
   },
   {
     "id": 7,
-    "title": "Mexican Gothic",
-    "author": "Silvia Moreno-Garcia",
-    "genre": "Gothic Horror",
-    "pages": 320,
-    "goodreads_rating": 3.85,
-    "year_published": 2020,
-    "date_read": "2024-03-07",
-    "selected_by": 7,
-    "description": "1950s Mexico. A glamorous socialite investigates her cousin's mysterious illness at a remote mansion run by a deeply unsettling English family. Gothic horror with a feminist, colonial critique at its heart.",
-    "cover_color": "#4a148c",
-    "cover_accent": "#ce93d8",
-    "tags": ["horror", "gothic", "Mexico", "feminism", "colonialism"],
+    "title": "Ender's Game",
+    "author": "Orson Scott Card",
+    "genre": "Sci-Fi",
+    "pages": 324,
+    "goodreads_rating": 4.31,
+    "year_published": 1985,
+    "date_read": "2025-07-19",
+    "selected_by": 4,
+    "description": "Andrew 'Ender' Wiggin is trained from childhood in a zero-gravity battle school to become the military genius humanity needs against an alien invasion. A masterclass in strategy, manipulation, and the ethics of violence.",
+    "cover_color": "#0a1628",
+    "cover_accent": "#4a8fc7",
+    "tags": [
+      "sci-fi",
+      "space",
+      "military",
+      "coming-of-age",
+      "classic"
+    ],
+    "event_note": "Yakzies emergency book club",
     "ratings": {
-      "1": {"score": 4.5, "review": "The atmosphere alone is worth five stars. Deeply unsettling in the best way."},
-      "2": {"score": 4.0, "review": "Noemi is a fantastic protagonist. The ending got weird but I was along for the ride."},
-      "3": {"score": 3.5, "review": "Elegant prose but the horror mechanics felt a bit genre-by-numbers to me."},
-      "4": {"score": 4.5, "review": "The colonial horror is not subtle and shouldn't be."},
-      "5": {"score": 5.0, "review": "The creep factor built perfectly. That house is evil and I loved every page."}
-    }
+      "1": {
+        "score": 5.0,
+        "review": ""
+      },
+      "8": {
+        "score": 5.0,
+        "review": ""
+      },
+      "2": {
+        "score": 5.0,
+        "review": ""
+      },
+      "5": {
+        "score": 4.0,
+        "review": ""
+      },
+      "6": {
+        "score": 4.0,
+        "review": ""
+      },
+      "9": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/375802.Ender_s_Game",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1408303130i/375802.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Endurance",
+    "author": "Alfred Lansing",
+    "genre": "History / Adventure",
+    "pages": 282,
+    "goodreads_rating": 4.46,
+    "year_published": 1959,
+    "date_read": "2025-08-22",
+    "selected_by": 6,
+    "description": "Ernest Shackleton's 1914 Antarctic expedition ended when his ship was crushed by ice. What followed — 700 miles in an open boat across the Drake Passage, a mountain traverse in crampons, and the rescue of every single man — is the greatest survival story ever told.",
+    "cover_color": "#0e2a3e",
+    "cover_accent": "#78b8d4",
+    "tags": [
+      "adventure",
+      "Shackleton",
+      "Antarctic",
+      "survival",
+      "history",
+      "leadership"
+    ],
+    "event_note": "Steve's wedding",
+    "ratings": {
+      "1": {
+        "score": 5.0,
+        "review": "Great book. Many thanks to my friend Mike for excellent book club selection. Cheers"
+      },
+      "6": {
+        "score": 5.0,
+        "review": ""
+      },
+      "9": {
+        "score": 5.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/139069.Endurance",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1391329559i/139069.jpg"
+  },
+  {
+    "id": 9,
+    "title": "The Spy and the Traitor",
+    "author": "Ben Macintyre",
+    "genre": "Non-Fiction / Espionage",
+    "pages": 384,
+    "goodreads_rating": 4.52,
+    "year_published": 2018,
+    "date_read": "2025-09-14",
+    "selected_by": 7,
+    "description": "The true story of Oleg Gordievsky — KGB resident in London and Britain's most valuable Cold War spy. A thriller in every sense, except every word is true.",
+    "cover_color": "#1a1a2e",
+    "cover_accent": "#9892aa",
+    "tags": [
+      "espionage",
+      "Cold War",
+      "KGB",
+      "non-fiction",
+      "true story"
+    ],
+    "event_note": "McBain lawn overseeding",
+    "ratings": {
+      "1": {
+        "score": 5.0,
+        "review": ""
+      },
+      "5": {
+        "score": 5.0,
+        "review": ""
+      },
+      "9": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/37542581-the-spy-and-the-traitor",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1522906662i/37542581.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Scar Tissue",
+    "author": "Anthony Kiedis, Larry Sloman",
+    "genre": "Memoir",
+    "pages": 465,
+    "goodreads_rating": 4.1,
+    "year_published": 2004,
+    "date_read": "2025-10-17",
+    "selected_by": 2,
+    "description": "Anthony Kiedis, lead singer of the Red Hot Chili Peppers, traces his life from a 1960s California childhood with a rock-and-roll father through decades of addiction, music, heartbreak, and the band that redefined American rock.",
+    "cover_color": "#6b1010",
+    "cover_accent": "#e07070",
+    "tags": [
+      "memoir",
+      "music",
+      "rock",
+      "Red Hot Chili Peppers",
+      "addiction",
+      "Los Angeles"
+    ],
+    "event_note": "",
+    "ratings": {
+      "6": {
+        "score": 5.0,
+        "review": ""
+      },
+      "1": {
+        "score": 5.0,
+        "review": ""
+      },
+      "2": {
+        "score": 5.0,
+        "review": ""
+      },
+      "9": {
+        "score": 3.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/96647.Scar_Tissue",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1348688305i/96647.jpg"
+  },
+  {
+    "id": 11,
+    "title": "The Lies of Locke Lamora",
+    "author": "Scott Lynch",
+    "genre": "Fantasy",
+    "pages": 752,
+    "goodreads_rating": 4.3,
+    "year_published": 2006,
+    "date_read": "2025-11-22",
+    "selected_by": 8,
+    "description": "Locke Lamora is the greatest thief in Camorr, a city of canals built atop ancient ruins. He and his Gentlemen Bastards run cons of breathtaking ambition — until their schemes cross the most dangerous criminal in the city.",
+    "cover_color": "#1e1a2e",
+    "cover_accent": "#9b72cf",
+    "tags": [
+      "fantasy",
+      "heist",
+      "thieves",
+      "Venice-inspired",
+      "con artists",
+      "dark"
+    ],
+    "event_note": "Jim hot sauce punishment",
+    "ratings": {
+      "1": {
+        "score": 5.0,
+        "review": ""
+      },
+      "6": {
+        "score": 5.0,
+        "review": ""
+      },
+      "8": {
+        "score": 5.0,
+        "review": ""
+      },
+      "9": {
+        "score": 5.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/29588376-the-lies-of-locke-lamora",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1458646334i/29588376.jpg"
+  },
+  {
+    "id": 12,
+    "title": "A Gentleman in Moscow",
+    "author": "Amor Towles",
+    "genre": "Historical Fiction",
+    "pages": 495,
+    "goodreads_rating": 4.32,
+    "year_published": 2016,
+    "date_read": "2026-01-03",
+    "selected_by": 1,
+    "description": "In 1922, Count Alexander Rostov is sentenced to house arrest in the Metropol Hotel across from the Kremlin. A novel of extraordinary elegance about the decades that followed and the measure of a life fully lived.",
+    "cover_color": "#3e2a10",
+    "cover_accent": "#c4a265",
+    "tags": [
+      "historical fiction",
+      "Russia",
+      "Soviet",
+      "hotel",
+      "elegance",
+      "character study"
+    ],
+    "event_note": "",
+    "ratings": {
+      "1": {
+        "score": 5.0,
+        "review": ""
+      },
+      "6": {
+        "score": 5.0,
+        "review": ""
+      },
+      "9": {
+        "score": 5.0,
+        "review": ""
+      },
+      "8": {
+        "score": 5.0,
+        "review": ""
+      },
+      "5": {
+        "score": 5.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/34066798-a-gentleman-in-moscow",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1718915012i/34066798.jpg"
+  },
+  {
+    "id": 13,
+    "title": "The Fort Bragg Cartel",
+    "author": "Seth Harp",
+    "genre": "History",
+    "pages": 357,
+    "goodreads_rating": 4.09,
+    "year_published": 2025,
+    "date_read": "2026-02-07",
+    "selected_by": 3,
+    "description": "Details to be added — hit Edit on this page to fill in the author, genre, and description.",
+    "cover_color": "#1a2a1e",
+    "cover_accent": "#5e9a6e",
+    "tags": [
+      "history",
+      "non-fiction"
+    ],
+    "event_note": "Carhart forsaken — TMOATB agreement reneged upon",
+    "ratings": {
+      "8": {
+        "score": 5.0,
+        "review": ""
+      },
+      "9": {
+        "score": 4.0,
+        "review": ""
+      },
+      "6": {
+        "score": 4.0,
+        "review": ""
+      },
+      "1": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/220458600-the-fort-bragg-cartel",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1731642509i/220458600.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Demon Copperhead",
+    "author": "Barbara Kingsolver",
+    "genre": "Literary Fiction",
+    "pages": 560,
+    "goodreads_rating": 4.46,
+    "year_published": 2022,
+    "date_read": "2026-03-23",
+    "selected_by": 5,
+    "description": "A retelling of David Copperfield set in the contemporary Appalachian opioid crisis. Pulitzer Prize winner. A boy born to a teenage mother in a southwest Virginia trailer navigates foster care, high school football, and the pills that swallowed a generation.",
+    "cover_color": "#3e2010",
+    "cover_accent": "#b87a40",
+    "tags": [
+      "literary fiction",
+      "Appalachia",
+      "opioid crisis",
+      "Dickens",
+      "Pulitzer",
+      "America"
+    ],
+    "event_note": "Illini beat up on VCU",
+    "ratings": {
+      "9": {
+        "score": 5.0,
+        "review": ""
+      },
+      "5": {
+        "score": 5.0,
+        "review": ""
+      },
+      "2": {
+        "score": 4.0,
+        "review": ""
+      },
+      "6": {
+        "score": 4.0,
+        "review": ""
+      }
+    },
+    "goodreads_url": "https://www.goodreads.com/book/show/60194162-demon-copperhead",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1660050779i/60194162.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Playground",
+    "author": "Richard Powers",
+    "genre": "Literary Fiction",
+    "pages": 381,
+    "goodreads_rating": 4.14,
+    "year_published": 2024,
+    "date_read": "2026-04-24",
+    "selected_by": 9,
+    "description": "Four lives converge across decades on a remote Pacific atoll: a Tahitian diver, a troubled tech billionaire, a marine biologist, and a game designer. A novel about the ocean, AI, and what humanity is willing to sacrifice for the next frontier.",
+    "cover_color": "#0e2a2a",
+    "cover_accent": "#5ecfb0",
+    "tags": [
+      "literary fiction",
+      "climate",
+      "Pacific",
+      "AI",
+      "ocean",
+      "interconnected"
+    ],
+    "event_note": "",
+    "ratings": {},
+    "goodreads_url": "https://www.goodreads.com/book/show/205478762-playground",
+    "cover_img": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1712677708i/205478762.jpg"
   }
 ]

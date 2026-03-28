@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="80" cy="80" r="80"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- bg -->
+        <circle cx="80" cy="80" r="80" fill="#f5c89a"/>
+        <!-- neck -->
+        <rect x="66" y="112" width="28" height="22" rx="6" fill="#f2b07a"/>
+        <!-- shirt - light sage henley -->
+        <path d="M30 160 Q30 128 52 122 L80 132 L108 122 Q130 128 130 160Z" fill="#b8c9a0"/>
+        <!-- henley buttons -->
+        <rect x="77" y="128" width="6" height="3" rx="1.5" fill="#98b078"/>
+        <rect x="77" y="134" width="6" height="3" rx="1.5" fill="#98b078"/>
+        <!-- head -->
+        <ellipse cx="80" cy="80" rx="40" ry="44" fill="#f5c89a"/>
+        <!-- hair - blond, side swept -->
+        <ellipse cx="80" cy="44" rx="40" ry="20" fill="#d4a847"/>
+        <path d="M42 50 Q45 36 58 34 Q70 32 80 34 Q96 32 108 40 Q116 46 118 54 Q108 42 95 40 Q80 38 65 40 Q52 42 42 50Z" fill="#e0b84e"/>
+        <!-- side part detail -->
+        <path d="M56 34 Q62 32 68 35 Q64 44 60 46" fill="#c89c35" opacity="0.5"/>
+        <!-- ears -->
+        <ellipse cx="40" cy="84" rx="6" ry="8" fill="#f2b07a"/>
+        <ellipse cx="120" cy="84" rx="6" ry="8" fill="#f2b07a"/>
+        <!-- eyes - friendly -->
+        <ellipse cx="65" cy="80" rx="7" ry="7.5" fill="white"/>
+        <ellipse cx="95" cy="80" rx="7" ry="7.5" fill="white"/>
+        <circle cx="65" cy="81" r="4.5" fill="#4a7ab5"/>
+        <circle cx="95" cy="81" r="4.5" fill="#4a7ab5"/>
+        <circle cx="65" cy="80" r="2.2" fill="#1a2a3a"/>
+        <circle cx="95" cy="80" r="2.2" fill="#1a2a3a"/>
+        <circle cx="66.5" cy="79" r="1" fill="white"/>
+        <circle cx="96.5" cy="79" r="1" fill="white"/>
+        <!-- eyebrows - blond -->
+        <path d="M58 72 Q65 69 72 71" stroke="#c89c35" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M88 71 Q95 69 102 72" stroke="#c89c35" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- nose -->
+        <path d="M78 88 Q80 92 82 88" stroke="#e09a60" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- big smile -->
+        <path d="M62 98 Q80 112 98 98" stroke="#c07040" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M62 98 Q80 114 98 98" fill="#fff" opacity="0.7"/>
+        <!-- beer bottle bottom -->
+        <rect x="72" y="148" width="16" height="12" rx="4" fill="#c8a830"/>
+        <rect x="74" y="143" width="12" height="8" rx="2" fill="#a8881a"/>
+        <!-- freckle/mole on cheek -->
+        <circle cx="96" cy="89" r="1.5" fill="#d4955a"/>
+      </svg>
+  </g>
+</svg>

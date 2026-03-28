@@ -2,127 +2,172 @@
   {
     "id": 1,
     "name": "David Guse",
-    "nickname": "Edit me!",
+    "nickname": "The Life of the Party",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "DavidGuse",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Historical Fiction",
     "rating_style": "",
     "join_date": "2024-01-01",
-    "signature_dish": "",
-    "chef_nickname": ""
+    "signature_dish": "Moscow Mule",
+    "chef_nickname": "",
+    "avatar_img": "member_1.svg"
   },
   {
     "id": 2,
     "name": "Jack Cawley",
-    "nickname": "Edit me!",
+    "nickname": "The Outdoor Adventurer",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "JackCawley",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Memoirs",
     "rating_style": "",
     "join_date": "2024-01-01",
     "signature_dish": "",
-    "chef_nickname": ""
+    "chef_nickname": "",
+    "avatar_img": "member_2.svg"
   },
   {
     "id": 3,
     "name": "Jackson Carhart",
-    "nickname": "Edit me!",
+    "nickname": "The Birthday Boy",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "JacksonCarhart",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Non-Fiction 800+ Pages",
     "rating_style": "",
     "join_date": "2024-01-01",
     "signature_dish": "",
-    "chef_nickname": ""
+    "chef_nickname": "",
+    "avatar_img": "member_3.svg"
   },
   {
     "id": 4,
     "name": "Jimmy Schelli",
-    "nickname": "Edit me!",
-    "tagline": "Click 'Edit' on your profile to add your tagline.",
+    "nickname": "The Cool Guy",
+    "tagline": "",
     "avatar_seed": "JimmySchelli",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Young Adult Fiction",
     "rating_style": "",
     "join_date": "2024-01-01",
     "signature_dish": "",
-    "chef_nickname": ""
+    "chef_nickname": "",
+    "avatar_img": "member_4.svg"
   },
   {
     "id": 5,
     "name": "Matt McBain",
-    "nickname": "Edit me!",
+    "nickname": "The Groom",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "MattMcBain",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Books with Guns",
     "rating_style": "",
     "join_date": "2024-01-01",
     "signature_dish": "",
-    "chef_nickname": ""
+    "chef_nickname": "",
+    "avatar_img": "member_5.svg"
   },
   {
     "id": 6,
     "name": "Mike Chiodi",
-    "nickname": "Edit me!",
+    "nickname": "Mike",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "MikeChiodi",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Antarctica",
     "rating_style": "",
     "join_date": "2024-01-01",
-    "signature_dish": "",
-    "chef_nickname": ""
+    "signature_dish": "Steve's Wedding Dinner",
+    "chef_nickname": "",
+    "avatar_img": "member_6.svg"
   },
   {
     "id": 7,
     "name": "Nate Richard",
-    "nickname": "Edit me!",
+    "nickname": "The Traveler",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "NateRichard",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "The Hardy Boys Series",
     "rating_style": "",
     "join_date": "2024-01-01",
     "signature_dish": "",
-    "chef_nickname": ""
+    "chef_nickname": "",
+    "avatar_img": "member_7.svg"
   },
   {
     "id": 8,
     "name": "Quinn Martin",
-    "nickname": "Edit me!",
+    "nickname": "The Newly Engaged",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "QuinnMartin",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Boy Fantasy",
     "rating_style": "",
     "join_date": "2024-01-01",
     "signature_dish": "",
-    "chef_nickname": ""
+    "chef_nickname": "",
+    "avatar_img": "member_8.svg"
   },
   {
     "id": 9,
     "name": "Andrew Feightner",
-    "nickname": "Edit me!",
+    "nickname": "The Romantic in Paris",
     "tagline": "Click 'Edit' on your profile to add your tagline.",
     "avatar_seed": "AndrewFeightner",
-    "fun_facts": ["Add your fun facts through the edit page!"],
-    "quotes": ["Add your memorable quotes through the edit page."],
-    "favorite_genre": "",
+    "fun_facts": [
+      "Add your fun facts through the edit page!"
+    ],
+    "quotes": [
+      "Add your memorable quotes through the edit page."
+    ],
+    "favorite_genre": "Woke Fiction",
     "rating_style": "",
     "join_date": "2024-01-01",
     "signature_dish": "",
-    "chef_nickname": ""
+    "chef_nickname": "",
+    "avatar_img": "member_9.svg"
   }
 ]

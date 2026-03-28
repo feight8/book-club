@@ -75,7 +75,7 @@
 
         <div class="flex flex-center gap-sm">
           <img
-            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ meal.prepared_by_member.avatar_seed }}&backgroundColor=1a1826"
+            src="{{ avatar_url(meal.prepared_by_member) }}"
             class="avatar avatar-sm"
             alt="{{ meal.prepared_by_member.name }}"
           />

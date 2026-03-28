@@ -33,6 +33,15 @@
   </div>
 </div>
 
+<!-- Sort bar -->
+<div class="filter-bar" id="sortBar" style="margin-bottom:0;">
+  <span class="text-xs text-muted" style="margin-right:0.25rem; align-self:center;">Sort:</span>
+  <button class="filter-btn active" data-sort="date">Date Read</button>
+  <button class="filter-btn" data-sort="pages">Pages</button>
+  <button class="filter-btn" data-sort="gr">GR Rating</button>
+  <button class="filter-btn" data-sort="club">Club Rating</button>
+</div>
+
 <!-- Genre filter -->
 <div class="filter-bar" id="filterBar">
   <button class="filter-btn active" data-genre="all">All</button>
@@ -47,9 +56,20 @@
   <a href="{{ url_for('book_detail', book_id=book.id) }}"
      class="card book-card"
      data-genre="{{ book.genre }}"
+     data-date="{{ book.date_read }}"
+     data-pages="{{ book.pages }}"
+     data-gr="{{ book.goodreads_rating }}"
+     data-club="{{ book.avg_member_rating or 0 }}"
      style="text-decoration:none; color:inherit;">
     <!-- Cover -->
-    <div class="book-cover" style="height:220px; background: linear-gradient(150deg, {{ book.cover_color }} 0%, {{ book.cover_color }}88 50%, {{ book.cover_accent }}44 100%);">
+    <div class="book-cover" style="height:220px;
+      {% if book.cover_img %}
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%), url('{{ book.cover_img }}');
+      background-size: cover; background-position: center;
+      {% else %}
+      background: linear-gradient(150deg, {{ book.cover_color }} 0%, {{ book.cover_color }}88 50%, {{ book.cover_accent }}44 100%);
+      {% endif %}
+    ">
       <div style="font-size:3rem; position:absolute; top:1rem; right:1rem; opacity:0.2;">📖</div>
       <div>
         <div class="book-cover-title" style="font-size:1.1rem;">{{ book.title }}</div>
@@ -77,9 +97,9 @@
         <div class="rating-bar-wrap">
           <span class="text-xs text-muted" style="width:70px; flex-shrink:0;">Our Rating</span>
           <div class="rating-bar-bg">
-            <div class="rating-bar-fill" style="width:{{ (book.avg_member_rating / 5 * 100) | round }}%;"></div>
+            <div class="rating-bar-fill" style="width:{{ ((book.avg_member_rating or 0) / 5 * 100) | round }}%;"></div>
           </div>
-          <span class="rating-num">{{ book.avg_member_rating }}</span>
+          <span class="rating-num">{{ book.avg_member_rating or '—' }}</span>
         </div>
       </div>
 
@@ -89,7 +109,7 @@
       <div class="flex flex-center gap-sm">
         {% if book.selected_by_member %}
         <img
-          src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ book.selected_by_member.avatar_seed }}&backgroundColor=1a1826"
+          src="{{ avatar_url(book.selected_by_member) }}"
           class="avatar avatar-sm"
           alt="{{ book.selected_by_member.name }}"
         />
@@ -108,20 +128,14 @@
   {% endfor %}
 </div>
 
-<!-- Genre chart -->
-<div class="chart-wrap mt-3" style="max-width:500px;">
-  <h3>Genre Distribution</h3>
-  <canvas id="genreChart" height="200"></canvas>
-</div>
-
 {% endblock %}
 
 {% block scripts %}
 <script>
-// Filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
+// Genre filter
+document.querySelectorAll('#filterBar .filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#filterBar .filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const genre = btn.dataset.genre;
     document.querySelectorAll('.book-card').forEach(card => {
@@ -130,35 +144,22 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// Genre chart
-const genreData = {{ genre_counts | tojson }};
-const labels = Object.keys(genreData);
-const values = Object.values(genreData);
-const COLORS = ['#e8b86d','#5ecfb0','#9b72cf','#e05c6e','#60a5fa','#f97316','#a3e635'];
-
-new Chart(document.getElementById('genreChart'), {
-  type: 'bar',
-  data: {
-    labels,
-    datasets: [{
-      data: values,
-      backgroundColor: COLORS.slice(0, labels.length),
-      borderRadius: 8,
-      borderSkipped: false,
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { display: false } },
-    scales: {
-      y: {
-        ticks: { color: '#9892aa', stepSize: 1 },
-        grid: { color: '#2e2a42' },
-        beginAtZero: true,
-      },
-      x: { ticks: { color: '#9892aa' }, grid: { display: false } }
-    }
-  }
+// Sort
+const grid = document.getElementById('booksGrid');
+document.querySelectorAll('#sortBar .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#sortBar .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const key = btn.dataset.sort;
+    const cards = [...grid.querySelectorAll('.book-card')];
+    cards.sort((a, b) => {
+      if (key === 'date') return b.dataset.date.localeCompare(a.dataset.date);
+      if (key === 'pages') return parseFloat(b.dataset.pages) - parseFloat(a.dataset.pages);
+      if (key === 'gr')    return parseFloat(b.dataset.gr) - parseFloat(a.dataset.gr);
+      if (key === 'club')  return parseFloat(b.dataset.club) - parseFloat(a.dataset.club);
+    });
+    cards.forEach(c => grid.appendChild(c));
+  });
 });
 </script>
 {% endblock %}

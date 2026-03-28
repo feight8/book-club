@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="home-hero">
-  <h1>Chapter &amp; Chow</h1>
+  <h1>Boys Books and Bites</h1>
   <p>Books, bites, and the occasional hot take. A record of everything we've read, cooked, and argued about.</p>
 </div>
 
@@ -37,7 +37,7 @@
     <!-- Latest Book -->
     {% if recent_book %}
     <div class="sidebar-card mb-3">
-      <div class="section-title">Most Recent Read</div>
+      <div class="section-title">Current Read</div>
       <div class="recent-card">
         <div class="recent-cover" style="background: {{ recent_book.cover_color }}20; border: 2px solid {{ recent_book.cover_color }}40;">
           <span style="font-size:2.5rem;">📖</span>
@@ -63,7 +63,7 @@
     <!-- Books grid preview -->
     <div class="section-title">All Books</div>
     <div class="grid-3">
-      {% for book in books %}
+      {% for book in books | sort(attribute='date_read', reverse=True) %}
       <a href="{{ url_for('book_detail', book_id=book.id) }}" class="card" style="text-decoration:none;">
         <div class="book-cover" style="background: linear-gradient(135deg, {{ book.cover_color }}, {{ book.cover_accent }}30);">
           <div>
@@ -91,12 +91,6 @@
 
   <!-- Sidebar -->
   <div>
-    <!-- Genre chart -->
-    <div class="chart-wrap">
-      <h3>Genre Breakdown</h3>
-      <canvas id="genreChart" height="220"></canvas>
-    </div>
-
     <!-- Members -->
     <div class="sidebar-card">
       <div class="section-title">Club Members</div>
@@ -104,7 +98,7 @@
       <a href="{{ url_for('person_detail', member_id=member.id) }}" style="text-decoration:none; color:inherit;">
         <div class="member-mini">
           <img
-            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ member.avatar_seed }}&backgroundColor=1a1826"
+            src="{{ avatar_url(member) }}"
             alt="{{ member.name }}"
             class="avatar avatar-sm"
           />
@@ -113,7 +107,7 @@
             <div class="text-xs" style="color:var(--gold);">{{ member.nickname }}</div>
           </div>
           <div class="text-xs text-muted" style="margin-left:auto;">
-            {{ member.books_selected | length }} pick{{ 's' if member.books_selected | length != 1 }}
+            {{ member.books_selected_list | length }} pick{{ 's' if member.books_selected_list | length != 1 }}
           </div>
         </div>
       </a>
@@ -137,39 +131,4 @@
   </div>
 
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script>
-const genreData = {{ genre_counts | tojson }};
-const labels = Object.keys(genreData);
-const values = Object.values(genreData);
-const COLORS = ['#e8b86d','#5ecfb0','#9b72cf','#e05c6e','#60a5fa','#f97316'];
-
-const ctx = document.getElementById('genreChart');
-if (ctx) {
-  new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels,
-      datasets: [{
-        data: values,
-        backgroundColor: COLORS.slice(0, labels.length),
-        borderColor: '#0e0d13',
-        borderWidth: 3,
-        hoverOffset: 6,
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { color: '#9892aa', font: { size: 12 }, padding: 14, boxWidth: 12 }
-        }
-      }
-    }
-  });
-}
-</script>
 {% endblock %}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="80" cy="80" r="80"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="80" fill="#8aaec8"/>
+        <!-- river/arch hint -->
+        <path d="M0 100 Q40 85 80 95 Q120 105 160 95 L160 160 L0 160Z" fill="#7090a8" opacity="0.4"/>
+        <!-- olive knit open collar -->
+        <path d="M28 160 Q28 122 52 116 L80 130 L108 116 Q132 122 132 160Z" fill="#7a8050"/>
+        <!-- knit texture lines -->
+        <path d="M52 124 Q60 130 68 124" stroke="#6a7040" stroke-width="1" fill="none"/>
+        <path d="M92 124 Q100 130 108 124" stroke="#6a7040" stroke-width="1" fill="none"/>
+        <!-- collar open -->
+        <path d="M66 116 L80 128 L94 116" fill="#6a7040" opacity="0.5"/>
+        <!-- neck strong/tall -->
+        <rect x="66" y="108" width="28" height="20" rx="5" fill="#e0a060"/>
+        <!-- head - chiseled, wider jaw -->
+        <ellipse cx="80" cy="78" rx="41" ry="43" fill="#e0a060"/>
+        <!-- dark hair slicked back, side swept -->
+        <path d="M40 66 Q38 42 56 33 Q68 26 80 28 Q94 26 106 33 Q122 42 120 66 Q112 48 98 44 Q88 40 80 40 Q68 40 56 46 Q46 56 40 66Z" fill="#1a1a1a"/>
+        <!-- slicked back grooming -->
+        <path d="M52 34 Q62 30 72 32 Q66 40 60 44Z" fill="#2a2a2a" opacity="0.5"/>
+        <path d="M108 34 Q102 30 92 32 Q96 38 100 44Z" fill="#2a2a2a" opacity="0.4"/>
+        <!-- ears -->
+        <ellipse cx="39" cy="82" rx="6" ry="8" fill="#d89858"/>
+        <ellipse cx="121" cy="82" rx="6" ry="8" fill="#d89858"/>
+        <!-- eyes dark, charming -->
+        <ellipse cx="64" cy="79" rx="7.5" ry="7" fill="white"/>
+        <ellipse cx="96" cy="79" rx="7.5" ry="7" fill="white"/>
+        <circle cx="64" cy="80" r="4.5" fill="#2a2a1a"/>
+        <circle cx="96" cy="80" r="4.5" fill="#2a2a1a"/>
+        <circle cx="64" cy="79" r="2.2" fill="#080808"/>
+        <circle cx="96" cy="79" r="2.2" fill="#080808"/>
+        <circle cx="65.5" cy="78" r="1" fill="white"/>
+        <circle cx="97.5" cy="78" r="1" fill="white"/>
+        <!-- eyebrows darker, stronger -->
+        <path d="M57 70 Q64 67 71 70" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M89 70 Q96 67 103 70" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- nose defined -->
+        <path d="M76 88 Q80 93 84 88" stroke="#c08040" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- confident smile -->
+        <path d="M63 97 Q80 110 97 97" stroke="#a86030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- holding wine glass -->
+        <path d="M110 138 Q108 148 116 150 Q124 148 122 138Z" fill="#d0d8e8" opacity="0.7"/>
+        <line x1="116" y1="150" x2="116" y2="158" stroke="#b0b8c8" stroke-width="2"/>
+        <rect x="110" y="156" width="12" height="2" rx="1" fill="#b0b8c8"/>
+        <!-- wine in glass -->
+        <path d="M110 142 Q108 148 116 150 Q124 148 122 142Z" fill="#c04050" opacity="0.5"/>
+      </svg>
+  </g>
+</svg>

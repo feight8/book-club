@@ -7,7 +7,7 @@
 <!-- Hero -->
 <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem; margin-bottom:2rem; display:flex; align-items:center; gap:2rem; flex-wrap:wrap;">
   <img
-    src="https://api.dicebear.com/9.x/fun-emoji/svg?seed={{ member.avatar_seed }}&backgroundColor=241f35"
+    src="{{ avatar_url(member, '241f35') }}"
     alt="{{ member.name }}"
     class="avatar"
     style="width:120px; height:120px; border:4px solid var(--border);"
@@ -15,10 +15,8 @@
   <div style="flex:1; min-width:200px;">
     <div class="nickname" style="font-size:0.85rem; margin-bottom:0.3rem;">"{{ member.nickname }}"</div>
     <h1 style="font-size:2.2rem; letter-spacing:-0.03em; margin-bottom:0.3rem;">{{ member.name }}</h1>
-    <div class="tagline" style="font-size:1rem; margin-bottom:1rem;">"{{ member.tagline }}"</div>
     <div class="tags">
       <span class="tag tag-teal">{{ member.favorite_genre }}</span>
-      <span class="tag">{{ member.rating_style }}</span>
       <span class="tag">Member since {{ member.join_date }}</span>
     </div>
   </div>
@@ -147,13 +145,13 @@
     </div>
 
     <!-- Chef card -->
+    {% if member.signature_dish %}
     <div class="sidebar-card mb-2">
       <div class="section-title">🔪 In the Kitchen</div>
       <div class="text-sm text-muted mb-1">Signature Dish</div>
-      <div class="fw-bold mb-2">{{ member.signature_dish }}</div>
-      <div class="text-sm text-muted mb-1">Chef Nickname</div>
-      <div class="fw-bold text-gold">{{ member.chef_nickname }}</div>
+      <div class="fw-bold">{{ member.signature_dish }}</div>
     </div>
+    {% endif %}
 
     <!-- Ratings radar -->
     <div class="chart-wrap">
