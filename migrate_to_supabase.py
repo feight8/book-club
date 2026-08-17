@@ -9,6 +9,7 @@ Run ONCE, after the Supabase project + "avatars" bucket exist:
     python migrate_to_supabase.py
 """
 
+import mimetypes
 import os
 import sqlite3
 import sys
@@ -122,6 +123,7 @@ def upload_avatars():
         return
     files = [f for f in os.listdir(AVATARS_DIR) if os.path.isfile(os.path.join(AVATARS_DIR, f))]
     for filename in files:
+        content_type = mimetypes.guess_type(filename)[0] or "application/octet-stream"
         with open(os.path.join(AVATARS_DIR, filename), "rb") as f:
             resp = requests.put(
                 f"{SUPABASE_URL}/storage/v1/object/{AVATAR_BUCKET}/{filename}",
@@ -129,6 +131,7 @@ def upload_avatars():
                 headers={
                     "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
                     "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                    "Content-Type": content_type,
                     "x-upsert": "true",
                 },
             )

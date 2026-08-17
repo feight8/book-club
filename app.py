@@ -1,5 +1,6 @@
 import json
 import os
+import uuid
 import requests
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -146,13 +147,15 @@ def get_meals_for_book(book_id):
 
 # ── Avatar helper ──────────────────────────────────────────────────────────────
 
-def save_avatar(member_id, file):
+def save_avatar(member_id, file, old_avatar_img=None):
     if not file or not file.filename:
         return None
     ext = file.filename.rsplit(".", 1)[-1].lower()
     if ext not in ALLOWED_AVATAR_EXTENSIONS:
         return None
-    filename = f"member_{member_id}.{ext}"
+    # A unique filename per upload (rather than overwriting member_{id}.{ext}) sidesteps
+    # Supabase Storage's CDN not reliably invalidating its edge cache on overwrite.
+    filename = f"member_{member_id}_{uuid.uuid4().hex[:8]}.{ext}"
     resp = requests.put(
         f"{SUPABASE_URL}/storage/v1/object/{AVATAR_BUCKET}/{filename}",
         data=file.read(),
@@ -160,10 +163,17 @@ def save_avatar(member_id, file):
             "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
             "apikey": SUPABASE_SERVICE_ROLE_KEY,
             "Content-Type": file.mimetype or "application/octet-stream",
-            "x-upsert": "true",
         },
     )
     resp.raise_for_status()
+    if old_avatar_img:
+        requests.delete(
+            f"{SUPABASE_URL}/storage/v1/object/{AVATAR_BUCKET}/{old_avatar_img}",
+            headers={
+                "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+                "apikey": SUPABASE_SERVICE_ROLE_KEY,
+            },
+        )
     return filename
 
 @app.context_processor
@@ -528,7 +538,8 @@ def person_edit(member_id):
                 join_date=%(join_date)s, signature_dish=%(signature_dish)s
             WHERE id=%(id)s
         """, f)
-        filename = save_avatar(member_id, request.files.get("avatar_file"))
+        filename = save_avatar(member_id, request.files.get("avatar_file"),
+                                old_avatar_img=member.get("avatar_img"))
         if filename:
             db.execute("UPDATE members SET avatar_img=%s WHERE id=%s", (filename, member_id))
         db.commit()
