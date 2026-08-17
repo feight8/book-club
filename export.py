@@ -1,45 +1,33 @@
 """
-Export all app data to a timestamped JSON backup file.
-Called both by the weekly scheduler and the /export route.
+Export all app data to a timestamped JSON snapshot for on-demand download.
+Called by the /export route.
 """
 
 import json
 import os
-import sqlite3
+import tempfile
+import psycopg2
+from psycopg2.extras import RealDictCursor
 from datetime import datetime
 
-DATA_DIR   = os.path.join(os.path.dirname(__file__), "data")
-DATABASE   = os.path.join(DATA_DIR, "bookclub.db")
-BACKUP_DIR = os.path.join(DATA_DIR, "backups")
-KEEP       = 10   # number of rolling backups to retain
+DATABASE_URL = os.environ["DATABASE_URL"]
+TMP_DIR      = tempfile.gettempdir()
 
 
 def do_export() -> str:
-    """Write a full JSON snapshot; return the path to the new file."""
-    os.makedirs(BACKUP_DIR, exist_ok=True)
+    """Write a full JSON snapshot to the system temp dir; return the path to the new file."""
+    db = psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor)
+    cur = db.cursor()
 
-    db = sqlite3.connect(DATABASE)
-    db.row_factory = sqlite3.Row
-
-    snapshot = {
-        "exported_at": datetime.utcnow().isoformat() + "Z",
-        "members": [dict(r) for r in db.execute("SELECT * FROM members").fetchall()],
-        "books":   [dict(r) for r in db.execute("SELECT * FROM books").fetchall()],
-        "ratings": [dict(r) for r in db.execute("SELECT * FROM ratings").fetchall()],
-        "meals":   [dict(r) for r in db.execute("SELECT * FROM meals").fetchall()],
-    }
+    snapshot = {"exported_at": datetime.utcnow().isoformat() + "Z"}
+    for table in ("members", "books", "ratings", "meals"):
+        cur.execute(f"SELECT * FROM {table}")
+        snapshot[table] = [dict(r) for r in cur.fetchall()]
     db.close()
 
     filename = f"backup_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
-    path = os.path.join(BACKUP_DIR, filename)
+    path = os.path.join(TMP_DIR, filename)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(snapshot, f, indent=2, ensure_ascii=False)
-
-    # Keep only the N most recent backups
-    all_backups = sorted(
-        f for f in os.listdir(BACKUP_DIR) if f.startswith("backup_")
-    )
-    for old in all_backups[:-KEEP]:
-        os.remove(os.path.join(BACKUP_DIR, old))
 
     return path
